@@ -12,7 +12,6 @@ namespace EvilTemple.Support
             Bind<GameModules>().ToSelf().InSingletonScope();
             Bind<IPaths>().To(typeof(Paths)).InSingletonScope();
             Bind<IUserSettings>().To(typeof (UserSettings)).InSingletonScope();
-            Bind<IScripting>().To(typeof (Scripting)).InSingletonScope();
         }
     }
 

@@ -1,6 +1,5 @@
 ﻿using System;
 using EvilTemple.Runtime;
-using Microsoft.Scripting.Hosting;
 
 namespace EvilTemple.Gui
 {
@@ -10,15 +9,15 @@ namespace EvilTemple.Gui
 
         private IUserInterface _userInterface;
 
-        private IScripting _scripting;
+        //private IScripting _scripting;
 
-        private ScriptScope _scope;
+        //private ScriptScope _scope;
 
-        public Console(IUserInterface userInterface, IScripting scripting)
+        public Console(IUserInterface userInterface/*, IScripting scripting*/)
         {
             _userInterface = userInterface;
-            _scripting = scripting;
-            _scope = CreateScope();
+            //_scripting = scripting;
+            //_scope = CreateScope();
         }
 
         public void ToggleVisibility()
@@ -40,6 +39,19 @@ namespace EvilTemple.Gui
             }
         }
 
+        private void HandleCommand(string command)
+        {
+            try
+            {
+                //var result = _scope.Engine.Execute(command, _scope);
+                //if (result != null)
+                //    _consoleWindow.appendResult(result.ToString());
+            } catch (Exception e) {
+                _consoleWindow.appendResult("<b style='color: red'>ERROR:</b> " + e);
+            }
+        }
+		
+	/*	
         private ScriptScope CreateScope()
         {
             var scope = _scripting.Engine.CreateScope();
@@ -48,17 +60,6 @@ namespace EvilTemple.Gui
 
             return scope;
         }
-
-        private void HandleCommand(string command)
-        {
-            try
-            {
-                var result = _scope.Engine.Execute(command, _scope);
-                if (result != null)
-                    _consoleWindow.appendResult(result.ToString());
-            } catch (Exception e) {
-                _consoleWindow.appendResult("<b style='color: red'>ERROR:</b> " + e);
-            }
-        }
+*/
     }
 }
