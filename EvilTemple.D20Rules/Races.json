@@ -1,0 +1,135 @@
+﻿[
+  {
+    "id": "human",
+    "playable": true,
+    "name": "#stat/2000",
+    "description": "#stat/12000",
+	"equipmentSubStyleId": "human",
+    "maleCharacteristics": {
+      "prototype": "13000",
+      "height": [147, 197],
+      "weight": [120, 200]
+    },
+    "femaleCharacteristics": {
+      "prototype": "13001",
+      "height": [135, 185],
+      "weight": [85, 165]
+    },
+    "landSpeed": 30,
+    "startingFeats": 2
+  },
+
+  {
+    "id": "dwarf",
+    "playable": true,
+    "name": "#stat/2001",
+    "description": "#stat/12001",
+	"equipmentSubStyleId": "dwarf",
+    "maleCharacteristics": {
+      "prototype": "13002",
+      "height": [114, 129],
+      "weight": [130, 178]
+    },
+    "femaleCharacteristics": {
+      "prototype": "13003",
+      "height": [109, 134],
+      "weight": [100, 148]
+    },
+    "landSpeed": 20
+  },
+
+  {
+    "id": "elf",
+    "playable": true,
+    "name": "#stat/2002",
+    "description": "#stat/12002",
+	"equipmentSubStyleId": "elf",
+    "maleCharacteristics": {
+      "prototype": "13004",
+      "height": [135, 165],
+      "weight": [85, 121]
+    },
+    "femaleCharacteristics": {
+      "prototype": "13005",
+      "height": [135, 165],
+      "weight": [80, 116]
+    },
+    "landSpeed": 30
+  },
+
+  {
+    "id": "gnome",
+    "playable": true,
+    "name": "#stat/2003",
+    "description": "#stat/12003",
+	"equipmentSubStyleId": "gnome",
+    "maleCharacteristics": {
+      "prototype": "13006",
+      "height": [91, 111],
+      "weight": [40, 48]
+    },
+    "femaleCharacteristics": {
+      "prototype": "13007",
+      "height": [86, 106],
+      "weight": [35, 43]
+    },
+    "landSpeed": 20
+  },
+
+  {
+    "id": "halfelf",
+    "playable": true,
+    "name": "#stat/2004",
+    "description": "#stat/12004",
+	"equipmentSubStyleId": "halfelf",
+    "maleCharacteristics": {
+      "prototype": "13008",
+      "height": [140, 180],
+      "weight": [100, 164]
+    },
+    "femaleCharacteristics": {
+      "prototype": "13009",
+      "height": [135, 175],
+      "weight": [80, 144]
+    },
+    "landSpeed": 30
+  },
+
+  {
+    "id": "halforc",
+    "playable": true,
+    "name": "#stat/2005",
+    "description": "#stat/12005",
+	"equipmentSubStyleId": "halforc",
+    "maleCharacteristics": {
+      "prototype": "13010",
+      "height": [147, 208],
+      "weight": [150, 294]
+    },
+    "femaleCharacteristics": {
+      "prototype": "13011",
+      "height": [135, 195],
+      "weight": [110, 254]
+    },
+    "landSpeed": 30
+  },
+
+  {
+    "id": "halfling",
+    "playable": true,
+    "name": "#stat/2006",
+    "description": "#stat/12006",
+	"equipmentSubStyleId": "halfling",
+    "maleCharacteristics": {
+      "prototype": "13012",
+      "height": [81, 111],
+      "weight": [30, 38]
+    },
+    "femaleCharacteristics": {
+      "prototype": "13013",
+      "height": [76, 106],
+      "weight": [25, 33]
+    },
+    "landSpeed": 20
+  }
+]

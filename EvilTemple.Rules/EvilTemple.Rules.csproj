@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9C210D9D-BC98-4751-A53A-917C638EBB79}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EvilTemple.Rules</RootNamespace>
+    <AssemblyName>EvilTemple.Rules</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\out\debug\bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>..\out\release\bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\thirdparty\Json40r1\bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\thirdparty\ninject-2.2\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\thirdparty\nunit-2.5.8\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK">
+      <HintPath>..\thirdparty\opentk\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AbilityScore.cs" />
+    <Compile Include="BaseObject.cs" />
+    <Compile Include="BaseObjectSerializer.cs" />
+    <Compile Include="BonusFeatList.cs" />
+    <Compile Include="Campaign.cs" />
+    <Compile Include="CharacterClass.cs" />
+    <Compile Include="ClassLevel.cs" />
+    <Compile Include="Color3.cs" />
+    <Compile Include="Critter.cs" />
+    <Compile Include="CritterEquipmentSlot.cs" />
+    <Compile Include="CrossFader.cs" />
+    <Compile Include="Deity.cs" />
+    <Compile Include="Domain.cs" />
+    <Compile Include="Domains.cs" />
+    <Compile Include="Enums.cs" />
+    <Compile Include="Equipment.cs" />
+    <Compile Include="CritterEquipmentBuilder.cs" />
+    <Compile Include="EquipmentSlot.cs" />
+    <Compile Include="GameTime.cs" />
+    <Compile Include="MapRenderState.cs" />
+    <Compile Include="Messages\HourChanged.cs" />
+    <Compile Include="Messages\TimeChanged.cs" />
+    <Compile Include="VisualTimers.cs" />
+    <Compile Include="GlobalLightingController.cs" />
+    <Compile Include="LightInfo.cs" />
+    <Compile Include="LightingKeyframe.cs" />
+    <Compile Include="Map.cs" />
+    <Compile Include="GlobalLightingSettings.cs" />
+    <Compile Include="Messages\StartingCampaign.cs" />
+    <Compile Include="Money.cs" />
+    <Compile Include="PlayerVoice.cs" />
+    <Compile Include="Requirements\AbilityRequirement.cs" />
+    <Compile Include="Requirements\AlignmentRequirement.cs" />
+    <Compile Include="Requirements\BaseAttackBonusRequirement.cs" />
+    <Compile Include="Requirements\CasterLevelRequirement.cs" />
+    <Compile Include="Requirements\CharacterLevelRequirement.cs" />
+    <Compile Include="Requirements\ClassLevelRequirement.cs" />
+    <Compile Include="Requirements\ConditionalRequirement.cs" />
+    <Compile Include="Feats\Feat.cs" />
+    <Compile Include="Requirements\FeatRequirement.cs" />
+    <Compile Include="Feats\FeatRegistry.cs" />
+    <Compile Include="Requirements\IRequirement.cs" />
+    <Compile Include="Requirements\ProficientWithWeaponRequirement.cs" />
+    <Compile Include="Requirements\TurnOrRebukeRequirement.cs" />
+    <Compile Include="Requirements\WildShapeAbilityRequirement.cs" />
+    <Compile Include="HairStyle.cs" />
+    <Compile Include="IdentifiableComparer.cs" />
+    <Compile Include="InventoryIcon.cs" />
+    <Compile Include="InventoryIcons.cs" />
+    <Compile Include="IProgressionTable.cs" />
+    <Compile Include="JumpPoint.cs" />
+    <Compile Include="RulesModule.cs" />
+    <Compile Include="Party.cs" />
+    <Compile Include="PlayerCharacter.cs" />
+    <Compile Include="Portrait.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Prototypes\BaseObjectPrototype.cs" />
+    <Compile Include="Container.cs" />
+    <Compile Include="Prototypes\CritterPrototypes.cs" />
+    <Compile Include="NonPlayerCharacter.cs" />
+    <Compile Include="Item.cs" />
+    <Compile Include="MapChanger.cs" />
+    <Compile Include="Portal.cs" />
+    <Compile Include="Prototypes\Prototypes.cs" />
+    <Compile Include="Prototypes\PrototypeSerializer.cs" />
+    <Compile Include="Race.cs" />
+    <Compile Include="Races.cs" />
+    <Compile Include="Reputation.cs" />
+    <Compile Include="RulesSettings.cs" />
+    <Compile Include="Scenery.cs" />
+    <Compile Include="Skill.cs" />
+    <Compile Include="Tests\BaseObjectSerializerTest.cs" />
+    <Compile Include="Tests\BaseObjectTest.cs" />
+    <Compile Include="Tests\FeatsSerializationTest.cs" />
+    <Compile Include="Tests\PrototypeSerializationTest.cs" />
+    <Compile Include="IIdentifiable.cs" />
+    <Compile Include="Utilities\Converters.cs" />
+    <Compile Include="Utilities\Dice.cs" />
+    <Compile Include="Utilities\IdentifiableConverter.cs" />
+    <Compile Include="Utilities\Registry.cs" />
+    <Compile Include="Utilities\Translations.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EvilTemple.Runtime\EvilTemple.Runtime.csproj">
+      <Project>{C09ABF74-F6BD-46E3-A364-4B41B162021F}</Project>
+      <Name>EvilTemple.Runtime</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

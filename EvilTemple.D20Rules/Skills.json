@@ -1,0 +1,195 @@
+﻿[
+
+            {
+                id: "appraise",
+                name: "#skill/0",
+                description: "#skill/5000",
+                ability: "Intelligence"
+            },
+
+            {
+                id: "bluff",
+                name: "#skill/1",
+                description: "#skill/5001",
+                ability: "Charisma"
+            },
+
+            {
+                id: "concentration",
+                name: "#skill/2",
+                description: "#skill/5002",
+                ability: "Constitution"
+            },
+
+            {
+                id: "diplomacy",
+                name: "#skill/3",
+                description: "#skill/5003",
+                ability: "Charisma",
+				/* TODO: Synergy Table */
+                /*getSynergyBonus: function(skillRanks, context) {
+                    var bonus = 0;
+                    if (skillRanks["Bluff"] >= 5)
+                        bonus += 2;
+                    if (skillRanks["SenseMotive"] >= 5)
+                        bonus += 2;
+                    return bonus;
+                }*/
+            },
+
+            {
+                id: "disableDevice",
+                name: "#skill/4",
+                description: "#skill/5004",
+                ability: "Dexterity"
+            },
+
+            {
+                id: "gatherInformation",
+                name: "#skill/5",
+                description: "#skill/5005",
+                ability: "Charisma"
+            },
+
+            {
+                id: "heal",
+                name: "#skill/6",
+                description: "#skill/5006",
+                ability: "Wisdom"
+            },
+
+            {
+                id: "hide",
+                name: "#skill/7",
+                description: "#skill/5007",
+                ability: "Dexterity"
+            },
+
+            {
+                id: "intimidate",
+                name: "#skill/8",
+                description: "#skill/5008",
+                ability: "Charisma",
+				/* TODO: Synergy Table */
+                /*getSynergyBonus: function(skillRanks, context) {
+                    return skillRanks["Bluff"] >= 5 ? 2 : 0;
+                }*/
+            },
+
+            {
+                id: "listen",
+                name: "#skill/9",
+                description: "#skill/5009",
+                ability: "Wisdom"
+            },
+
+            {
+                id: "moveSilently",
+                name: "#skill/10",
+                description: "#skill/5010",
+                ability: "Dexterity"
+            },
+
+            {
+                id: "openLock",
+                name: "#skill/11",
+                description: "#skill/5011",
+                ability: "Dexterity"
+            },
+
+            {
+                id: "perform",
+                name: "#skill/20",
+                description: "#skill/5020",
+                ability: "Charisma"
+            },
+
+            {
+                id: "search",
+                name: "#skill/13",
+                description: "#skill/5013",
+                ability: "Intelligence"
+            },
+
+            {
+                id: "senseMotive",
+                name: "#skill/14",
+                description: "#skill/5014",
+                ability: "Wisdom"
+            },
+
+            {
+                id: "sleightOfHand",
+                name: "#skill/12",
+                description: "#skill/5012",
+                ability: "Dexterity",
+				/* TODO: Synergy Table */
+                /*getSynergyBonus: function(skillRanks, context) {
+                    return skillRanks["Bluff"] >= 5 ? 2 : 0;
+                }*/
+            },
+
+            {
+                id: "spellcraft",
+                name: "#skill/15",
+                description: "#skill/5015",
+                ability: "Intelligence",
+				/* TODO: Synergy Table */
+                /*getSynergyBonus: function(skillRanks, context) {
+                    // TODO: Context is non-formalized
+                    if (context == 'DecipherScroll') {
+                        return skillRanks["UseMagicDevice"] >= 5 ? 2 : 0;
+                    } else {
+                        return 0;
+                    }
+                }*/
+            },
+
+            {
+                id: "spot",
+                name: "#skill/16",
+                description: "#skill/5016",
+                ability: "Wisdom"
+            },
+
+            {
+                id: "survival",
+                name: "#skill/19",
+                description: "#skill/5019",
+                ability: "Wisdom",
+				/* TODO: Synergy Table */
+                /*getSynergyBonus: function(skillRanks, context) {
+                    // TODO: Context is non-formalized
+                    if (context == 'Tracking') {
+                        return skillRanks["Search"] >= 5 ? 2 : 0;
+                    } else {
+                        return 0;
+                    }
+                }*/
+            },
+
+            {
+                id: "tumble",
+                name: "#skill/17",
+                description: "#skill/5017",
+                ability: "Dexterity"
+            },
+
+            {
+                id: "useMagicDevice",
+                name: "#skill/18",
+                description: "#skill/5018",
+                ability: "Charisma",
+				/* TODO: Synergy Table */
+                /*getSynergyBonus: function(skillRanks, context) {
+                    // TODO: Context is non-formalized
+                    // Rather: for targets that are scrolls
+                    if (context == 'Scroll') {
+                        return skillRanks["UseMagicDevice"] >= 5 ? 2 : 0;
+                    } else {
+                        return 0;
+                    }
+                }*/
+            },
+
+]

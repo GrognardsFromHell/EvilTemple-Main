@@ -1,0 +1,139 @@
+﻿[
+
+    {
+        id: "boccob",
+        name: "#deities/1",
+        description: "#deities/1001",
+        alignment: "TrueNeutral",
+        domains: ["knowledge", "magic", "trickery"]
+    },
+    {
+        id: "corellonLarethian",
+        name: "#deities/2",
+        description: "#deities/1002",
+        alignment: "ChaoticGood",
+        domains: ["chaos", "good", "protection", "war"]
+    },
+    {
+        id: "ehlonna",
+        name: "#deities/3",
+        description: "#deities/1003",
+        alignment: "NeutralGood",
+        domains: ["animal", "good", "plant", "sun"]
+    },
+    {
+        id: "erythnul",
+        name: "#deities/4",
+        description: "#deities/1004",
+        alignment: "ChaoticEvil",
+        domains: ["chaos", "evil", "trickery", "war"]
+    },
+    {
+        id: "fharlanghn",
+        name: "#deities/5",
+        description: "#deities/1005",
+        alignment: "TrueNeutral",
+        domains: ["luck", "protection", "travel"]
+    },
+    {
+        id: "garlGlittergold",
+        name: "#deities/6",
+        description: "#deities/1006",
+        alignment: "NeutralGood",
+        domains: ["good", "protection", "trickery"]
+    },
+    {
+        id: "gruumsh",
+        name: "#deities/7",
+        description: "#deities/1007",
+        alignment: "ChaoticEvil",
+        domains: ["chaos", "evil", "strength", "war"]
+    },
+    {
+        id: "heironeous",
+        name: "#deities/8",
+        description: "#deities/1008",
+        alignment: "LawfulGood",
+        domains: ["good", "law", "war"]
+    },
+    {
+        id: "hextor",
+        name: "#deities/9",
+        description: "#deities/1009",
+        alignment: "LawfulEvil",
+        domains: ["destruction", "evil", "law", "war"]
+    },
+    {
+        id: "kord",
+        name: "#deities/10",
+        description: "#deities/1010",
+        alignment: "ChaoticGood",
+        domains: ["chaos", "good", "luck", "strength"]
+    },
+    {
+        id: "moradin",
+        name: "#deities/11",
+        description: "#deities/1011",
+        alignment: "LawfulGood",
+        domains: ["earth", "good", "law", "protection"]
+    },
+    {
+        id: "nerull",
+        name: "#deities/12",
+        description: "#deities/1012",
+        alignment: "NeutralEvil",
+        domains: ["death", "evil", "trickery"]
+    },
+    {
+        id: "obadHai",
+        name: "#deities/13",
+        description: "#deities/1013",
+        alignment: "TrueNeutral",
+        domains: ["air", "animal", "earth", "fire",
+            "plant", "water"]
+    },
+    {
+        id: "olidammara",
+        name: "#deities/14",
+        description: "#deities/1014",
+        alignment: "ChaoticNeutral",
+        domains: ["chaos", "luck", "trickery"]
+    },
+    {
+        id: "pelor",
+        name: "#deities/15",
+        description: "#deities/1015",
+        alignment: "NeutralGood",
+        domains: ["good", "healing", "strength", "sun"]
+    },
+    {
+        id: "stCuthbert",
+        name: "#deities/16",
+        description: "#deities/1016",
+        alignment: "LawfulNeutral",
+        domains: ["destruction", "law",
+            "protection", "strength"]
+    },
+    {
+        id: "vecna",
+        name: "#deities/17",
+        description: "#deities/1017",
+        alignment: "NeutralEvil",
+        domains: ["evil", "knowledge", "magic"]
+    },
+    {
+        id: "weeJas",
+        name: "#deities/18",
+        description: "#deities/1018",
+        alignment: "LawfulNeutral",
+        domains: ["death", "law", "magic"]
+    },
+    {
+        id: "yondalla",
+        name: "#deities/19",
+        description: "#deities/1019",
+        alignment: "LawfulGood",
+        domains: ["good", "law", "protection"]
+    }
+
+]

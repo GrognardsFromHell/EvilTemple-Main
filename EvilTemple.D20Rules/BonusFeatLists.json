@@ -1,0 +1,60 @@
+﻿[
+
+	{
+		"id": "warrior",
+		"feats": [
+			"blindFight",
+			"combatExpertise",
+			"improvedDisarm",
+			"improvedFeint",
+			"improvedTrip",
+			"whirlwindAttack",
+			"combatReflexes",
+			"dodge",
+			"mobility",
+			"springAttack",
+			"exoticWeaponProficiency",
+			"improvedCritical",
+			"improvedInitiative",
+			"improvedShieldBash",
+			"improvedUnarmedStrike",
+			"deflectArrows",
+			"improvedGrapple",
+			"snatchArrows",
+			"stunningFist",
+			"pointBlankShot",
+			"farShot",
+			"preciseShot",
+			"rapidShot",
+			"manyshot",
+			"shotOnTheRun",
+			"improvedPreciseShot",
+			"powerAttack",
+			"cleave",
+			"greatCleave",
+			"improvedBullRush",
+			"improvedOverrun",
+			"improvedSunder",
+			"quickDraw",
+			"rapidReload",
+			"twoWeaponFighting",
+			"twoWeaponDefense",
+			"improvedTwoWeaponFighting",
+			"greaterTwoWeaponFighting",
+			"weaponFinesse",
+			"weaponFocus",
+			"weaponSpecialization",
+			"greaterWeaponFocus",
+			"greaterWeaponSpecialization"
+		]
+	},
+	
+
+	{
+		"id": "wizard",
+		"feats": [
+		]
+	},
+
+
+]

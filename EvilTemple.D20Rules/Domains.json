@@ -1,0 +1,137 @@
+﻿[
+
+	{
+        "id": "air",
+        "name": "#spell/4001",
+        "description": "TAG_AIR_D"
+    },
+
+    {
+        "id": "animal",
+        "name": "#spell/4002",
+        "description": "TAG_ANIMAL_D"
+    },
+
+    {
+        "id": "chaos",
+        "name": "#spell/4003",
+        "description": "TAG_CHAOS_D"
+    },
+
+    {
+        "id": "death",
+        "name": "#spell/4004",
+        "description": "TAG_DEATH_D"
+    },
+
+    {
+        "id": "destruction",
+        "name": "#spell/4005",
+        "description": "TAG_DESTRUCTION_D"
+    },
+
+    {
+        "id": "earth",
+        "name": "#spell/4006",
+        "description": "TAG_EARTH_D"
+    },
+
+    {
+        "id": "evil",
+        "name": "#spell/4007",
+        "description": "TAG_EVIL_D"
+    },
+
+    {
+        "id": "fire",
+        "name": "#spell/4008",
+        "description": "TAG_FIRE_D"
+    },
+
+    {
+        "id": "good",
+        "name": "#spell/4009",
+        "description": "TAG_GOOD_DOMAIN"
+    },
+
+    {
+        "id": "healing",
+        "name": "#spell/4010",
+        "description": "TAG_HEALING_D"
+    },
+
+    {
+        "id": "knowledge",
+        "name": "#spell/4011",
+        "description": "TAG_KNOWLEDGE_D"
+    },
+
+    {
+        "id": "law",
+        "name": "#spell/4012",
+        "description": "TAG_LAW_D"
+    },
+
+    {
+        "id": "luck",
+        "name": "#spell/4013",
+        "description": "TAG_LUCK_D"
+    },
+
+    {
+        "id": "magic",
+        "name": "#spell/4014",
+        "description": "TAG_MAGIC_D"
+    },
+
+    {
+        "id": "plant",
+        "name": "#spell/4015",
+        "description": "TAG_PLANT_D"
+    },
+
+    {
+        "id": "protection",
+        "name": "#spell/4016",
+        "description": "TAG_PROTECTION_D"
+    },
+
+    {
+        "id": "strength",
+        "name": "#spell/4017",
+        "description": "TAG_STRENGTH_D"
+    },
+
+    {
+        "id": "sun",
+        "name": "#spell/4018",
+        "description": "TAG_SUN_D"
+    },
+
+    {
+        "id": "travel",
+        "name": "#spell/4019",
+        "description": "TAG_TRAVEL_D",
+        classSkills: ["survival"]
+    },
+
+    {
+        "id": "trickery",
+        "name": "#spell/4020",
+        "description": "TAG_TRICKERY_D",
+        classSkills: ["bluff", "hide"]
+    },
+
+    {
+        "id": "war",
+        "name": "#spell/4021",
+        "description": "TAG_WAR_D"
+    },
+
+    {
+        "id": "water",
+        "name": "#spell/4022",
+        "description": "TAG_WATER_D"
+    }
+
+]

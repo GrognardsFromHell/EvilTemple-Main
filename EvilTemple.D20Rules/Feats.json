@@ -1,0 +1,1016 @@
+﻿/*
+  This file contains the D20 feats.
+*/
+[
+	/*
+	Test comment.
+	*/
+    {
+        id: 'acrobatic',
+        category: 'general',
+        name: '#feat/0',
+        shortDescription: '#feat/5000'
+    },
+
+    {
+        id: 'agile',
+        category: 'general',
+        name: '#feat/1',
+        shortDescription: '#feat/5001'
+    },
+
+    {
+        id: 'alertness',
+        category: 'general',
+        name: '#feat/2',
+        shortDescription: '#feat/5002'
+    },
+
+    {
+        id: 'animalAffinity',
+        category: 'general',
+        name: '#feat/3',
+        shortDescription: '#feat/5003'
+    },
+
+    {
+        id: 'armorProficiencyLight',
+        category: 'general',
+        name: '#feat/4',
+        shortDescription: '#feat/5004'
+    },
+
+    {
+        id: 'armorProficiencyMedium',
+        category: 'general',
+        name: '#feat/5',
+        shortDescription: '#feat/5005',
+        requirements: [
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'armorProficiencyLight'}}
+        ]
+    },
+
+    {
+        id: 'armorProficiencyHeavy',
+        category: 'general',
+        name: '#feat/6',
+        shortDescription: '#feat/5006',
+        requirements: [
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'armorProficiencyMedium'}}
+        ]
+    },
+
+    {
+        id: 'athletic',
+        category: 'general',
+        name: '#feat/7',
+        shortDescription: '#feat/5007'
+    },
+
+    {
+        id: 'augmentSummoning',
+        category: 'general',
+        name: '#feat/8',
+        shortDescription: '#feat/5008',
+        requirements: [
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'spellFocus', 'parameterValues': ['conjuration']}}
+        ]
+    },
+
+    {
+        id: 'blindFight',
+        category: 'general',
+        name: '#feat/9',
+        shortDescription: '#feat/5009'
+    },
+
+    {
+        id: 'brewPotion',
+        category: 'itemCreation',
+        name: '#feat/10',
+        shortDescription: '#feat/5010',
+        requirements: [
+            {'$type': 'CasterLevelRequirement', 'type':'Any', 'minLevel':3}
+        ]
+    },
+
+    {
+        id: 'cleave',
+        category: 'general',
+        name: '#feat/11',
+        shortDescription: '#feat/5011',
+        requirements: [
+            {'$type':'AbilityRequirement', 'ability':'Strength', 'minValue':13},
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'powerAttack'}}
+        ]
+    },
+
+	{
+        id: 'codeOfConduct',
+        category: 'general',
+        name: '#feat/572',
+        shortDescription: '#feat/5572'
+    },
+
+    {
+        id: 'combatCasting',
+        category: 'general',
+        name: '#feat/12',
+        shortDescription: '#feat/5012'
+    },
+
+    {
+        id: 'combatExpertise',
+        category: 'general',
+        name: '#feat/13',
+        shortDescription: '#feat/5013',
+        requirements: [
+            {'$type':'AbilityRequirement', 'ability':'Intelligence', 'minValue':13}
+        ]
+    },
+
+    {
+        id: 'combatReflexes',
+        category: 'general',
+        name: 'Combat Reflexes',
+        shortDescription: 'You may make additional attacks of opportunity per round and while you are flatFooted.'
+    },
+
+    {
+        id: 'craftMagicArmsAndArmor',
+        category: 'itemCreation',
+        name: '#feat/14',
+        shortDescription: '#feat/5014',
+        requirements: [
+            {'$type': 'CasterLevelRequirement', 'type':'Any', 'minLevel':5}
+        ]
+    },
+
+    {
+        id: 'craftRod',
+        category: 'itemCreation',
+        name: '#feat/15',
+        shortDescription: '#feat/5015',
+        requirements: [
+            {'$type': 'CasterLevelRequirement', 'type':'Any', 'minLevel':9}
+        ]
+    },
+
+    {
+        id: 'craftStaff',
+        category: 'itemCreation',
+        name: '#feat/16',
+        shortDescription: '#feat/5016',
+        requirements: [
+            {'$type': 'CasterLevelRequirement', 'type':'Any', 'minLevel':12}
+        ]
+    },
+
+    {
+        id: 'craftWand',
+        category: 'itemCreation',
+        name: '#feat/17',
+        shortDescription: '#feat/5017',
+        requirements: [
+            {'$type': 'CasterLevelRequirement', 'type':'Any', 'minLevel':5}
+        ]
+    },
+
+    {
+        id: 'craftWondrousItem',
+        category: 'itemCreation',
+        name: '#feat/18',
+        shortDescription: '#feat/5018',
+        requirements: [
+            {'$type': 'CasterLevelRequirement', 'type':'Any', 'minLevel':3}
+        ]
+    },
+
+	{
+        id: 'cripplingStrike',
+        category: 'general',
+        name: '#feat/606',
+        shortDescription: '#feat/5606'
+    },
+
+    {
+        id: 'deceitful',
+        category: 'general',
+        name: '#feat/19',
+        shortDescription: '#feat/5019'
+    },
+
+    {
+        id: 'deflectArrows',
+        category: 'general',
+        name: '#feat/23',
+        shortDescription: '#feat/5023',
+        requirements: [
+            {'$type':'AbilityRequirement', 'ability':'Dexterity', 'minValue':13},
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'improvedUnarmedStrike'}}
+        ]
+    },
+
+    {
+        id: 'deftHands',
+        category: 'general',
+        name: '#feat/20',
+        shortDescription: '#feat/5020'
+    },
+
+    {
+        id: 'diehard',
+        category: 'general',
+        name: '#feat/21',
+        shortDescription: '#feat/5021',
+        requirements: [
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'endurance'}}
+        ]
+    },
+
+    {
+        id: 'diligent',
+        category: 'general',
+        name: '#feat/22',
+        shortDescription: '#feat/5022'
+    },
+
+    {
+        id: 'dodge',
+        category: 'general',
+        name: '#feat/24',
+        shortDescription: '#feat/5024',
+        requirements: [
+            {'$type':'AbilityRequirement', 'ability':'Dexterity', 'minValue':13}
+        ]
+    },
+
+    {
+        id: 'empowerSpell',
+        category: 'metamagic',
+        name: '#feat/25',
+        shortDescription: '#feat/5025'
+    },
+
+    {
+        id: 'endurance',
+        category: 'general',
+        name: '#feat/26',
+        shortDescription: '#feat/5026'
+    },
+
+    {
+        id: 'enlargeSpell',
+        category: 'metamagic',
+        name: '#feat/27',
+        shortDescription: '#feat/5027'
+    },
+
+    {
+        id: 'eschewMaterials',
+        category: 'general',
+        name: '#feat/28',
+        shortDescription: '#feat/5028'
+    },
+
+    {
+        id: 'exoticWeaponProficiency',
+        category: 'general',
+        name: '#pc_creation/19101',
+        shortDescription: '#feat/5029',
+        requirements: [
+            {'$type': 'BaseAttackBonusRequirement', 'bonus': 1},
+            {'$type': 'ConditionalRequirement', 'condition':'bastardSword', 'requirement': {'$type':'AbilityRequirement', 'ability':'Strength', 'minValue':13}},
+            {'$type': 'ConditionalRequirement', 'condition':'dwarvenWaraxe', 'requirement': {'$type':'AbilityRequirement', 'ability':'Strength', 'minValue':13}}
+        ]
+    },
+
+    {
+        id: 'extendSpell',
+        category: 'metamagic',
+        name: '#feat/49',
+        shortDescription: '#feat/5049'
+    },
+
+    {
+        id: 'extraTurning',
+        category: 'general',
+        name: '#feat/50',
+        shortDescription: '#feat/5050',
+        requirements: [
+            {'$type': 'TurnOrRebukeRequirement'}
+        ]
+    },
+
+	{
+		id: 'evasion',
+		category: 'general',
+		name: '#feat/599',
+		shortDescription: '#feat/5599'
+	},
+
+	{
+		id: 'improvedEvasion',
+		category: 'general',
+		name: '#feat/602',
+		shortDescription: '#feat/5602'
+	},
+
+    {
+        id: 'farShot',
+        category: 'general',
+        name: '#feat/51',
+        shortDescription: '#feat/5051',
+        requirements: [
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'pointBlankShot'}}
+        ]
+    },
+
+	{
+        id: 'fastMovement',
+        category: 'general',
+        name: '#feat/588',
+        shortDescription: '#feat/5588'
+    },
+
+    {
+        id: 'forgeRing',
+        category: 'itemCreation',
+        name: '#feat/52',
+        shortDescription: '#feat/5052',
+        requirements: [
+            {'$type': 'CasterLevelRequirement', 'type':'Any', 'minLevel':12}
+        ]
+    },
+
+    {
+        id: 'greatCleave',
+        category: 'general',
+        name: '#feat/53',
+        shortDescription: '#feat/5053',
+        requirements: [
+            {'$type':'AbilityRequirement', 'ability':'Strength', 'minValue':13},
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'cleave'}},
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'powerAttack'}},
+            {'$type': 'BaseAttackBonusRequirement', 'bonus': 4}
+        ]
+    },
+
+    {
+        id: 'greatFortitude',
+        category: 'general',
+        name: '#feat/54',
+        shortDescription: '#feat/5054'
+    },
+
+    {
+        id: 'greaterSpellFocus',
+        category: 'metamagic',
+        name: 'Greater Spell Focus',
+        shortDescription: '#feat/5055',
+        requirements: [
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'spellFocus'}, 'sameArguments': true}
+        ]
+    },
+
+    {
+        id: 'greaterSpellPenetration',
+        category: 'general',
+        name: '#feat/63',
+        shortDescription: '#feat/5063',
+        requirements: [
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'spellPenetration'}}
+        ]
+    },
+
+    {
+        id: 'greaterTwoWeaponFighting',
+        category: 'general',
+        name: '#feat/64',
+        shortDescription: '#feat/5064',
+        requirements: [
+            {'$type':'AbilityRequirement', 'ability':'Dexterity', 'minValue':19},
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'improvedTwoWeaponFighting'}},
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'twoWeaponFighting'}},
+            {'$type': 'BaseAttackBonusRequirement', 'bonus': 11}
+        ]
+    },
+
+    {
+        id: 'greaterWeaponFocus',
+        category: 'general',
+        name: '#pc_creation/19108',
+        shortDescription: '#feat/5065',
+        requirements: [
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'weaponFocus'}, 'sameArguments': true},
+            {'$type': 'ClassLevelRequirement', 'classId': 'fighter', 'minLevel': 8}
+        ]
+    },
+
+    {
+        id: 'greaterWeaponSpecialization',
+        category: 'general',
+        name: '#feat/137',
+        shortDescription: '#feat/5137',
+        requirements: [
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'greaterWeaponFocus'}, 'sameArguments': true},
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'weaponSpecialization'}, 'sameArguments': true},
+            {'$type': 'ClassLevelRequirement', 'classId': 'fighter', 'minLevel': 12}
+        ]
+    },
+
+    {
+        id: 'heightenSpell',
+        category: 'metamagic',
+        name: '#feat/138',
+        shortDescription: '#feat/5138'
+    },
+
+    {
+        id: 'improvedBullRush',
+        category: 'general',
+        name: '#feat/139',
+        shortDescription: '#feat/5139',
+        requirements: [
+            {'$type':'AbilityRequirement', 'ability':'Strength', 'minValue':13},
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'powerAttack'}}
+        ]
+    },
+
+    {
+        id: 'improvedCounterspell',
+        category: 'general',
+        name: '#feat/140',
+        shortDescription: '#feat/5140'
+    },
+
+    {
+        id: 'improvedCritical',
+        category: 'general',
+        name: 'Improved Critical',
+        shortDescription: '#feat/5141',
+        requirements: [
+            {'$type': 'ProficientWithWeaponRequirement'},
+            {'$type': 'BaseAttackBonusRequirement', 'bonus': 8}
+        ]
+    },
+
+    {
+        id: 'improvedDisarm',
+        category: 'general',
+        name: '#feat/211',
+        shortDescription: '#feat/5211',
+        requirements: [
+            {'$type':'AbilityRequirement', 'ability':'Intelligence', 'minValue':13},
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'combatExpertise'}}
+        ]
+    },
+
+    {
+        id: 'improvedFeint',
+        category: 'general',
+        name: '#feat/212',
+        shortDescription: '#feat/5212',
+        requirements: [
+            {'$type':'AbilityRequirement', 'ability':'Intelligence', 'minValue':13},
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'combatExpertise'}}
+        ]
+    },
+
+    {
+        id: 'improvedGrapple',
+        category: 'general',
+        name: '#feat/213',
+        shortDescription: '#feat/5213',
+        requirements: [
+            {'$type':'AbilityRequirement', 'ability':'Dexterity', 'minValue':13},
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'improvedUnarmedStrike'}}
+        ]
+    },
+
+    {
+        id: 'improvedInitiative',
+        category: 'general',
+        name: '#feat/214',
+        shortDescription: '#feat/5214'
+    },
+
+    {
+        id: 'improvedOverrun',
+        category: 'general',
+        name: '#feat/215',
+        shortDescription: '#feat/5215',
+        requirements: [
+            {'$type':'AbilityRequirement', 'ability':'Strength', 'minValue':13},
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'powerAttack'}}
+        ]
+    },
+
+    {
+        id: 'improvedPreciseShot',
+        category: 'general',
+        name: 'Improved Precise Shot',
+        shortDescription: 'Your ranged attacks ignore the AC bonus granted to targets by anything less than total cover, and the miss chance granted to targets by anything less than total concealment.',
+        requirements: [
+            {'$type':'AbilityRequirement', 'ability':'Dexterity', 'minValue':19},
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'preciseShot'}},
+            {'$type': 'BaseAttackBonusRequirement', 'bonus': 11}
+        ]
+    },
+
+    {
+        id: 'improvedShieldBash',
+        category: 'general',
+        name: '#feat/216',
+        shortDescription: '#feat/5216',
+        requirements: [
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'shieldProficiency'}}
+        ]
+    },
+
+    {
+        id: 'improvedSunder',
+        category: 'general',
+        name: '#feat/340',
+        shortDescription: '#feat/5340',
+        requirements: [
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'powerAttack'}}
+        ]
+    },
+
+    {
+        id: 'improvedTrip',
+        category: 'general',
+        name: '#feat/217',
+        shortDescription: '#feat/5217',
+        requirements: [
+            {'$type':'AbilityRequirement', 'ability':'Intelligence', 'minValue':13},
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'combatExpertise'}}
+        ]
+    },
+
+    {
+        id: 'improvedTurning',
+        category: 'general',
+        name: '#feat/219',
+        shortDescription: '#feat/5219',
+        requirements: [
+            {'$type': 'TurnOrRebukeRequirement'},
+        ]
+    },
+
+    {
+        id: 'improvedTwoWeaponFighting',
+        category: 'general',
+        name: '#feat/218',
+        shortDescription: '#feat/5218',
+        requirements: [
+            {'$type':'AbilityRequirement', 'ability':'Dexterity', 'minValue':17},
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'twoWeaponFighting'}},
+            {'$type': 'BaseAttackBonusRequirement', 'bonus': 6}
+        ]
+    },
+
+    {
+        id: 'improvedUnarmedStrike',
+        category: 'general',
+        name: '#feat/220',
+        shortDescription: '#feat/5220'
+    },
+
+    {
+        id: 'improvedUncannyDodge',
+        category: 'general',
+        name: '#feat/221',
+        shortDescription: '#feat/5221'
+    },
+
+    {
+        id: 'investigator',
+        category: 'general',
+        name: '#feat/222',
+        shortDescription: '#feat/5222'
+    },
+
+    {
+        id: 'ironWill',
+        category: 'general',
+        name: '#feat/223',
+        shortDescription: '#feat/5223'
+    },
+
+    {
+        id: 'kiStrike',
+        category: 'general',
+        name: '#feat/603',
+        shortDescription: '#feat/5603'
+    },
+	
+	{
+        id: 'leadership',
+        category: 'general',
+        name: '#feat/224',
+        shortDescription: '#feat/5224',
+        requirements: [
+            {'$type': 'CharacterLevelRequirement', 'minLevel': 6}
+        ]
+    },
+
+    {
+        id: 'lightningReflexes',
+        category: 'general',
+        name: '#feat/225',
+        shortDescription: '#feat/5225'
+    },
+
+    {
+        id: 'magicalAffinity',
+        category: 'general',
+        name: '#feat/226',
+        shortDescription: '#feat/5226'
+    },
+
+    {
+        id: 'manyshot',
+        category: 'general',
+        name: '#feat/227',
+        shortDescription: '#feat/5227',
+        requirements: [
+            {'$type':'AbilityRequirement', 'ability':'Dexterity', 'minValue':17},
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'pointBlankShot'}},
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'rapidShot'}},
+            {'$type': 'BaseAttackBonusRequirement', 'bonus': 6}
+        ]
+    },
+
+    {
+        id: 'martialWeaponProficiency',
+        category: 'general',
+        name: 'Martial Weapon Proficiency',
+        shortDescription: '#feat/5228'
+    },
+
+    {
+        id: 'maximizeSpell',
+        category: 'metamagic',
+        name: '#feat/259',
+        shortDescription: '#feat/5259'
+    },
+
+    {
+        id: 'mobility',
+        category: 'general',
+        name: '#feat/260',
+        shortDescription: '#feat/5260',
+        requirements: [
+            {'$type':'AbilityRequirement', 'ability':'Dexterity', 'minValue':13},
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'dodge'}}
+        ]
+    },
+
+    {
+        id: 'naturalSpell',
+        category: 'general',
+        name: '#feat/263',
+        shortDescription: '#feat/5263',
+        requirements: [
+            {'$type':'AbilityRequirement', 'ability':'Wisdom', 'minValue':13},
+            {'$type':'WildShapeAbilityRequirement'}
+        ]
+    },
+
+    {
+        id: 'negotiator',
+        category: 'general',
+        name: '#feat/264',
+        shortDescription: '#feat/5264'
+    },
+
+    {
+        id: 'nimbleFingers',
+        category: 'general',
+        name: '#feat/265',
+        shortDescription: '#feat/5265'
+    },
+
+    {
+        id: 'persuasive',
+        category: 'general',
+        name: '#feat/266',
+        shortDescription: '#feat/5266'
+    },
+
+    {
+        id: 'pointBlankShot',
+        category: 'general',
+        name: '#feat/267',
+        shortDescription: '#feat/5267'
+    },
+
+    {
+        id: 'powerAttack',
+        category: 'general',
+        name: '#feat/268',
+        shortDescription: '#feat/5268',
+        requirements: [
+            {'$type':'AbilityRequirement', 'ability':'Strength', 'minValue':13}
+        ]
+    },
+
+    {
+        id: 'preciseShot',
+        category: 'general',
+        name: '#feat/269',
+        shortDescription: '#feat/5269',
+        requirements: [
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'pointBlankShot'}}
+        ]
+    },
+
+    {
+        id: 'quickDraw',
+        category: 'general',
+        name: '#feat/270',
+        shortDescription: '#feat/5270',
+        requirements: [
+            {'$type': 'BaseAttackBonusRequirement', 'bonus': 1}
+        ]
+    },
+
+    {
+        id: 'quickenSpell',
+        category: 'metamagic',
+        name: '#feat/271',
+        shortDescription: '#feat/5271'
+    },
+
+    {
+        id: 'rapidReload',
+        category: 'general',
+        name: '#feat/273',
+        shortDescription: '#feat/5273',
+        requirements: [
+            {'$type':'ProficientWithWeaponRequirement'}
+        ]
+    },
+
+    {
+        id: 'rapidShot',
+        category: 'general',
+        name: '#feat/272',
+        shortDescription: '#feat/5272',
+        requirements: [
+            {'$type':'AbilityRequirement', 'ability':'Dexterity', 'minValue':13},
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'pointBlankShot'}}
+        ]
+    },
+
+    {
+        id: 'run',
+        category: 'general',
+        name: '#feat/275',
+        shortDescription: '#feat/5275'
+    },
+
+    {
+        id: 'scribeScroll',
+        category: 'itemCreation',
+        name: '#feat/276',
+        shortDescription: '#feat/5276',
+        requirements: [
+            {'$type': 'CasterLevelRequirement', 'type':'Any', 'minLevel':1}
+        ]
+    },
+
+    {
+        id: 'selfSufficient',
+        category: 'general',
+        name: '#feat/277',
+        shortDescription: '#feat/5277'
+    },
+
+    {
+        id: 'shieldProficiency',
+        category: 'general',
+        name: '#feat/278',
+        shortDescription: '#feat/5278'
+    },
+
+    {
+        id: 'shotOnTheRun',
+        category: 'general',
+        name: '#feat/279',
+        shortDescription: '#feat/5279',
+        requirements: [
+            {'$type':'AbilityRequirement', 'ability':'Dexterity', 'minValue':13},
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'dodge'}},
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'mobility'}},
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'pointBlankShot'}},
+            {'$type': 'BaseAttackBonusRequirement', 'bonus': 4}
+        ]
+    },
+
+    {
+        id: 'silentSpell',
+        category: 'metamagic',
+        name: '#feat/280',
+        shortDescription: '#feat/5280'
+    },
+
+    {
+        id: 'simpleWeaponProficiency',
+        category: 'general',
+        name: '#feat/281',
+        shortDescription: '#feat/5281'
+    },
+
+    {
+        id: 'skillFocus',
+        category: 'general',
+        name: 'Skill Focus',
+        shortDescription: '#feat/5282'
+    },
+
+    {
+        id: 'snatchArrows',
+        category: 'general',
+        name: '#feat/324',
+        shortDescription: '#feat/5324',
+        requirements: [
+            {'$type':'AbilityRequirement', 'ability':'Dexterity', 'minValue':15},
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'deflectArrows'}},
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'improvedUnarmedStrike'}}
+        ]
+    },
+
+    {
+        id: 'spellFocus',
+        category: 'general',
+        name: 'Spell Focus',
+        shortDescription: '#feat/5325'
+    },
+
+    {
+        id: 'spellMastery',
+        category: 'general',
+        name: '#feat/333',
+        shortDescription: '#feat/5333',
+        requirements: [
+            {'$type': 'ClassLevelRequirement', 'classId': 'wizard', 'minLevel': 1}
+        ]
+    },
+
+    {
+        id: 'spellPenetration',
+        category: 'general',
+        name: '#feat/334',
+        shortDescription: '#feat/5334'
+    },
+
+    {
+        id: 'springAttack',
+        category: 'general',
+        name: '#feat/336',
+        shortDescription: '#feat/5336',
+        requirements: [
+            {'$type':'AbilityRequirement', 'ability':'Dexterity', 'minValue':13},
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'dodge'}},
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'mobility'}},
+            {'$type': 'BaseAttackBonusRequirement', 'bonus': 4}
+        ]
+    },
+
+    {
+        id: 'stealthy',
+        category: 'general',
+        name: '#feat/337',
+        shortDescription: '#feat/5337'
+    },
+
+    {
+        id: 'stillSpell',
+        category: 'metamagic',
+        name: '#feat/338',
+        shortDescription: '#feat/5338'
+    },
+
+    {
+        id: 'stunningFist',
+        category: 'general',
+        name: '#feat/339',
+        shortDescription: '#feat/5339',
+        requirements: [
+            {'$type':'AbilityRequirement', 'ability':'Dexterity', 'minValue':13},
+            {'$type':'AbilityRequirement', 'ability':'Wisdom', 'minValue':13},
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'improvedUnarmedStrike'}},
+            {'$type': 'BaseAttackBonusRequirement', 'bonus': 8}
+        ]
+    },
+
+    {
+        id: 'toughness',
+        category: 'general',
+        name: '#feat/341',
+        shortDescription: '#feat/5341'
+    },
+
+    {
+        id: 'towerShieldProficiency',
+        category: 'general',
+        name: '#feat/342',
+        shortDescription: '#feat/5342',
+        requirements: [
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'shieldProficiency'}}
+        ]
+    },
+
+    {
+        id: 'track',
+        category: 'general',
+        name: '#feat/343',
+        shortDescription: '#feat/5343'
+    },
+
+    {
+        id: 'twoWeaponFighting',
+        category: 'general',
+        name: '#feat/345',
+        shortDescription: '#feat/5345',
+        requirements: [
+            {'$type':'AbilityRequirement', 'ability':'Dexterity', 'minValue':15}
+        ]
+    },
+
+    {
+        id: 'twoWeaponDefense',
+        category: 'general',
+        name: '#feat/346',
+        shortDescription: '#feat/5346',
+        requirements: [
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'twoWeaponFighting'}}
+        ]
+    },
+
+    {
+        id: 'uncannyDodge',
+        category: 'general',
+        name: '#feat/587',
+        shortDescription: '#feat/5587'
+    },
+
+    {
+        id: 'weaponFinesse',
+        category: 'general',
+        name: '#pc_creation/19105',
+        shortDescription: '#feat/5347',
+        requirements: [
+            {'$type': 'BaseAttackBonusRequirement', 'bonus': 1}
+        ]
+    },
+
+    {
+        id: 'weaponFocus',
+        category: 'general',
+        name: '#pc_creation/19106',
+        shortDescription: '#feat/5417',
+        requirements: [
+            {'$type': 'BaseAttackBonusRequirement', 'bonus': 1},
+            {'$type': 'ProficientWithWeaponRequirement'}
+        ]
+    },
+
+    {
+        id: 'weaponSpecialization',
+        category: 'general',
+        name: '#pc_creation/19107',
+        shortDescription: '#feat/5489',
+        requirements: [
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'weaponFocus'}, 'sameArguments': true},
+            {'$type': 'ClassLevelRequirement', 'classId': 'fighter', 'minLevel': 4}
+        ]
+    },
+
+    {
+        id: 'whirlwindAttack',
+        category: 'general',
+        name: '#feat/560',
+        shortDescription: '#feat/5560',
+        requirements: [
+            {'$type':'AbilityRequirement', 'ability':'Dexterity', 'minValue':13},
+            {'$type':'AbilityRequirement', 'ability':'Intelligence', 'minValue':13},
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'combatExpertise'}},
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'dodge'}},
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'mobility'}},
+            {'$type': 'FeatRequirement', 'instance': {'featId': 'springAttack'}},
+            {'$type': 'BaseAttackBonusRequirement', 'bonus': 4}
+        ]
+    },
+
+    {
+        id: 'widenSpell',
+        category: 'metamagic',
+        name: '#feat/645',
+        shortDescription: '#feat/5645'
+    },
+
+]

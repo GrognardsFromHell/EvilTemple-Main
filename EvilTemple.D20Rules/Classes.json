@@ -1,0 +1,325 @@
+﻿[
+
+        {
+            id: "barbarian",
+            name: "#stat/7",
+            description: "#stat/13000",
+            hitDie: "d12",
+            requirements: [
+                {
+                    "$type": "AlignmentRequirement",
+                    "exclusive": ["LawfulGood", "LawfulNeutral", "LawfulEvil"]
+                }
+            ],
+            skillPoints: 4,
+            baseAttackBonus: "baseAttackStrong",
+            fortitudeSave: "savingThrowStrong",
+            reflexSave: "savingThrowWeak",
+            willSave: "savingThrowWeak",
+            classSkills: [
+                "intimidate",
+                "listen",
+                "survival"
+            ]
+        },
+
+        {
+            id: "bard",
+            name: "#stat/8",
+            description: "#stat/13001",
+            hitDie: "d6",
+            requirements: [
+                {
+                    "$type": "AlignmentRequirement",
+                    "exclusive": ["LawfulGood", "LawfulNeutral", "LawfulEvil"]
+                }
+            ],
+            skillPoints: 6,
+            baseAttackBonus: "baseAttackMedium",
+            fortitudeSave: "savingThrowWeak",
+            reflexSave: "savingThrowStrong",
+            willSave: "savingThrowStrong",
+            classSkills: [
+                "appraise",
+                "bluff",
+                "concentration",
+                "diplomacy",
+                "gatherInformation",
+                "hide",
+                "listen",
+                "moveSilently",
+                "perform",
+                "senseMotive",
+                "sleightOfHand",
+                "spellcraft",
+                "tumble",
+                "useMagicDevice"
+            ]
+        },
+
+        {
+            id: "cleric",
+            name: "#stat/9",
+            description: "#stat/13002",
+            hitDie: "d6",
+            requirements: [],
+            skillPoints: 2,
+            baseAttackBonus: "baseAttackMedium",
+            fortitudeSave: "savingThrowStrong",
+            reflexSave: "savingThrowWeak",
+            willSave: "savingThrowStrong",
+            classSkills: [
+                "concentration",
+                "diplomacy",
+                "heal",
+                "spellcraft"
+            ],
+			/* TODO: Domain Skills */
+            /*getClassSkills: function(character) {
+                // Domains add extra class-skills (possibly)
+                var result = this.classSkills.slice(0,
+                character.domains.forEach(function (domain) {
+                    if (domain.classSkills) {
+                        domain.classSkills.forEach(function (classSkill) {
+                            if (result.indexOf(classSkill) == -1)
+                                result.push(classSkill,
+                        },
+                    }
+                },
+                return result;
+            }*/
+        },
+
+        {
+            id: "druid",
+            name: "#stat/10",
+            description: "#stat/13003",
+            hitDie: "d8",
+            requirements: [
+                {
+                    "$type": "AlignmentRequirement",
+                    inclusive: ["NeutralGood", "LawfulNeutral", "TrueNeutral",
+                        "ChaoticNeutral", "NeutralEvil"]
+                }
+            ],
+            skillPoints: 4,
+            baseAttackBonus: "baseAttackMedium",
+            fortitudeSave: "savingThrowStrong",
+            reflexSave: "savingThrowWeak",
+            willSave: "savingThrowStrong",
+            classSkills: [
+                "concentration",
+                "diplomacy",
+                "heal",
+                "listen",
+                "spellcraft",
+                "spot",
+                "survival"
+            ]
+        },
+
+        {
+            id: "fighter",
+            name: "#stat/11",
+            description: "#stat/13004",
+            hitDie: "d10",
+            requirements: [],
+            skillPoints: 2,
+            baseAttackBonus: "baseAttackStrong",
+            fortitudeSave: "savingThrowStrong",
+            reflexSave: "savingThrowWeak",
+            willSave: "savingThrowWeak",
+            bonusFeats: [
+				{
+					"level": 1,
+					"featLists": ["warrior"]
+				},
+				{
+					"level": 2,
+					"featLists": ["warrior"]
+				},
+				{
+					"level": 4,
+					"featLists": ["warrior"]
+				},
+				{
+					"level": 6,
+					"featLists": ["warrior"]
+				},
+				{
+					"level": 8,
+					"featLists": ["warrior"]
+				},
+				{
+					"level": 10,
+					"featLists": ["warrior"]
+				},
+				{
+					"level": 12,
+					"featLists": ["warrior"]
+				},
+				{
+					"level": 14,
+					"featLists": ["warrior"]
+				},
+				{
+					"level": 16,
+					"featLists": ["warrior"]
+				},
+				{
+					"level": 18,
+					"featLists": ["warrior"]
+				},
+				{
+					"level": 20,
+					"featLists": ["warrior"]
+				}
+            ],
+            classSkills: [
+                "intimidate"
+            ]
+        },
+
+        {
+            id: "monk",
+            name: "#stat/12",
+            description: "#stat/13005",
+            hitDie: "d8",
+            requirements: [
+                {
+                    "$type": "AlignmentRequirement",
+                    inclusive: ["LawfulGood", "LawfulNeutral", "LawfulEvil"]
+                }
+            ],
+            skillPoints: 4,
+            baseAttackBonus: "baseAttackMedium",
+            fortitudeSave: "savingThrowStrong",
+            reflexSave: "savingThrowStrong",
+            willSave: "savingThrowStrong",
+            classSkills: [
+                "concentration",
+                "diplomacy",
+                "hide",
+                "listen",
+                "moveSilently",
+                "perform",
+                "senseMotive",
+                "spot",
+                "tumble"
+            ]
+        },
+
+        {
+            id: "paladin",
+            name: "#stat/13",
+            description: "#stat/13006",
+            hitDie: "d10",
+            requirements: [
+                {
+                    "$type": "AlignmentRequirement",
+                    inclusive: ["LawfulGood"]
+                }
+            ],
+            skillPoints: 2,
+            baseAttackBonus: "baseAttackStrong",
+            fortitudeSave: "savingThrowStrong",
+            reflexSave: "savingThrowWeak",
+            willSave: "savingThrowWeak",
+            classSkills: [
+                "concentration",
+                "diplomacy",
+                "heal",
+                "senseMotive"
+            ]
+        },
+
+        {
+            id: "ranger",
+            name: "#stat/14",
+            description: "#stat/13007",
+            hitDie: "d8",
+            requirements: [],
+            skillPoints: 6,
+            baseAttackBonus: "baseAttackStrong",
+            fortitudeSave: "savingThrowStrong",
+            reflexSave: "savingThrowStrong",
+            willSave: "savingThrowWeak",
+            classSkills: [
+                "concentration",
+                "heal",
+                "hide",
+                "listen",
+                "moveSilently",
+                "search",
+                "spot",
+                "survival"
+            ]
+        },
+
+        {
+            id: "rogue",
+            name: "#stat/15",
+            description: "#stat/13008",
+            hitDie: "d6",
+            requirements: [],
+            skillPoints: 8,
+            baseAttackBonus: "baseAttackMedium",
+            fortitudeSave: "savingThrowWeak",
+            reflexSave: "savingThrowStrong",
+            willSave: "savingThrowWeak",
+            classSkills: [
+                "appraise",
+                "bluff",
+                "diplomacy",
+                "disableDevice",
+                "gatherInformation",
+                "hide",
+                "intimidate",
+                "listen",
+                "moveSilently",
+                "openLock",
+                "perform",
+                "search",
+                "senseMotive",
+                "sleightOfHand",
+                "spot",
+                "tumble",
+                "useMagicDevice"
+            ]
+        },
+
+        {
+            id: "sorcerer",
+            name: "#stat/16",
+            description: "#stat/13009",
+            hitDie: "d4",
+            requirements: [],
+            skillPoints: 2,
+            baseAttackBonus: "baseAttackWeak",
+            fortitudeSave: "savingThrowWeak",
+            reflexSave: "savingThrowWeak",
+            willSave: "savingThrowStrong",
+            classSkills: [
+                "bluff",
+                "concentration",
+                "spellcraft"
+            ]
+        },
+
+        {
+            id: "wizard",
+            name: "#stat/17",
+            description: "#stat/13010",
+            hitDie: "d4",
+            requirements: [],
+            skillPoints: 2,
+            baseAttackBonus: "baseAttackWeak",
+            fortitudeSave: "savingThrowWeak",
+            reflexSave: "savingThrowWeak",
+            willSave: "savingThrowStrong",
+            classSkills: [
+                "concentration",
+                "spellcraft"
+            ]
+        },
+]
