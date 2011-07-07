@@ -34,9 +34,6 @@
     <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\thirdparty\Json40r1\bin\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="Ninject">
       <HintPath>..\thirdparty\ninject-2.2\Ninject.dll</HintPath>
     </Reference>
@@ -137,6 +134,10 @@
     <ProjectReference Include="..\EvilTemple.Runtime\EvilTemple.Runtime.csproj">
       <Project>{C09ABF74-F6BD-46E3-A364-4B41B162021F}</Project>
       <Name>EvilTemple.Runtime</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ThirdParty\Newtonsoft.Json\Newtonsoft.Json.csproj">
+      <Project>{A9AE40FF-1A21-414A-9FE7-3BE13644CC6D}</Project>
+      <Name>Newtonsoft.Json</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

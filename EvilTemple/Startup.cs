@@ -1,17 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
-using EngineInterop;
-using EvilTemple.D20Rules;
-using EvilTemple.Gui;
-using EvilTemple.Rules;
+using EvilTemple.NativeEngineInterop;
 using EvilTemple.Support;
-using Ninject;
-using Ninject.Syntax;
 using EvilTemple.Runtime;
-using EvilTemple.Runtime.Messages;
-using Rules;
 
 namespace EvilTemple
 {
@@ -20,61 +12,83 @@ namespace EvilTemple
         [STAThread]
         public static void Main(string[] args)
         {
+            var paths = new Paths();
+            var shortcuts = new Shortcuts();
+            /*
             InitializeConsoleLogging();
             InitializeFileLogging();
 
-            var shortcuts = new Shortcuts();
-
-            LeakedObjectMonitor.Install();
             
-            using (var resourceManager = new ResourceManager())
+
+            var kernel = new StandardKernel();
+            Services.Kernel = kernel;
+
+            kernel.Bind<IResourceManager>().ToConstant(resourceManager);
+            kernel.Bind<IShortcuts>().ToConstant(shortcuts);
+
+            LoadResources(resourceManager);
+             * */
+
+            /*
+                * There is one massive problem with this:
+                * If the GC's finalizer thread gets to collect this object, it will destroy the
+                * QApplication, which in turn will send events to some internal widgets, although 
+                * they have been created on a different thread. This leads to a shutdown crash.
+                */
+            using (var engineSettings = CreateEngineSettings())
+            using (var engine = new NativeEngine(engineSettings))
             {
-                var kernel = new StandardKernel();
-                Services.Kernel = kernel;
+                // Initialize resources
+                ResourceManager.addZipArchive("General", Path.Combine(paths.GeneratedDataPath, "data.zip"));
+                ResourceManager.addDirectory("General", Path.Combine(paths.InstallationPath, "data"));
+                ResourceManager.addDirectory("General", Path.Combine(paths.GeneratedDataPath, "data"));
+                ResourceManager.initializeGroup("General");
 
-                kernel.Bind<IResourceManager>().ToConstant(resourceManager);
-                kernel.Bind<IShortcuts>().ToConstant(shortcuts);
+                engine.OnKeyPress += e => Console.WriteLine("KEYPRESS: " + e.Text);
+                engine.OnKeyRelease += e => Console.WriteLine("KEYRELEASE: " + e.Text);
+                engine.OnMousePress += e => Console.WriteLine("Mouse Press: " + e.X + "," + e.Y);
+                engine.OnMouseRelease += e => Console.WriteLine("Mouse Release " + e.X + "," + e.Y);
+                engine.OnMouseMove += e => Console.WriteLine("Mouse Move " + e.X + "," + e.Y);
+                engine.OnMouseDoubleClick += e => Console.WriteLine("Mouse Double Click " + e.X + "," + e.Y);
 
-                LoadResources(resourceManager);
-                
-                /*
-                 * There is one massive problem with this:
-                 * If the GC's finalizer thread gets to collect this object, it will destroy the
-                 * QApplication, which in turn will send events to some internal widgets, although 
-                 * they have been created on a different thread. This leads to a shutdown crash.
-                 */
-                using (var engine = new Engine(args))
-                {
-                    LoadFonts(engine);
-
-                    // Subscribe to the events the engine provides
-                    engine.OnKeyPress += shortcuts.HandleEvent;
-                    engine.OnDrawFrame += EventBus.Send<DrawFrameMessage>;
+                // Subscribe to the events the engine provides
+                //engine.OnKeyPress += shortcuts.HandleEvent;
+                //engine.OnDrawFrame += EventBus.Send<DrawFrameMessage>;
                     
-                    // Add several objects provided only by the engine
-                    AddEngineObjects(kernel, engine);
+                // Add several objects provided only by the engine
+                //AddEngineObjects(kernel, engine);
 
-                    // Initialize all the other modules that depend on the engine
-                    kernel.Load(new RulesModule(), new D20Module(), new SupportModule(), new GuiModule());
+                // Initialize all the other modules that depend on the engine
+                //kernel.Load(new RulesModule(), new D20Module(), new SupportModule(), new GuiModule());
 
-                    // Load Modules
-                    LoadModules(kernel);
+                // Load Modules
+                //LoadModules(kernel);
 
-                    EventBus.Send<ApplicationStartup>();
+                //EventBus.Send<ApplicationStartup>();
 
-                    // Run the engine main loop
-                    engine.Run();
-
-                    EventBus.Send<ApplicationShutdown>();
-
-                    /* Try to release all references to game data before shutting down the engine */
-                    Services.Kernel = null;
-                    kernel.Dispose();
-                    GC.Collect();
+                // Run the engine main loop););));
+                while (true)
+                {
+                    engine.processEvents();
+                    engine.renderFrame();
                 }
+
+                /*
+                EventBus.Send<ApplicationShutdown>();
+                */
+                /* Try to release all references to game data before shutting down the engine */
+                /*Services.Kernel = null;
+                kernel.Dispose();
+                GC.Collect();*/
             }
         }
-        
+
+        private static NativeEngineSettings CreateEngineSettings()
+        {
+            return new NativeEngineSettings();
+        }
+
+        /*
         private static void InitializeFileLogging()
         {
             var paths = new Paths();
@@ -96,16 +110,6 @@ namespace EvilTemple
             var listener = new ColoredTraceListener();
             Trace.Listeners.Add(listener);
             SystemMessages.ConvertToTrace = true;
-        }
-
-        private static void LoadFonts(Engine engine)
-        {
-            engine.LoadFont(@"fonts\5inq_-_Handserif.ttf");
-            engine.LoadFont(@"fonts\ArtNoveauDecadente.ttf");
-            engine.LoadFont(@"fonts\Fontin-Bold.ttf");
-            engine.LoadFont(@"fonts\Fontin-Italic.ttf");
-            engine.LoadFont(@"fonts\Fontin-Regular.ttf");
-            engine.LoadFont(@"fonts\Fontin-SmallCaps.ttf");
         }
 
         private static void LoadModules(IKernel kernel)
@@ -131,7 +135,7 @@ namespace EvilTemple
             kernel.Bind<IUserInterface>().ToConstant(engine.UserInterface);
 
             kernel.Bind<IRenderableFactory>().ToConstant(engine.RenderableFactory);
-        }
+        }*/
     }
 
     class Shortcuts : IShortcuts

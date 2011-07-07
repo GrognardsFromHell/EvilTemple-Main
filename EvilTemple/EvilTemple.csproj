@@ -54,16 +54,7 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Engine.Interop, Version=1.0.4123.30570, Culture=neutral, processorArchitecture=x86">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\out\release\bin\Engine.Interop.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\thirdparty\Json40r1\bin\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="Ninject, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\thirdparty\ninject-2.2\Ninject.dll</HintPath>
@@ -121,6 +112,10 @@
       <Project>{A89AD963-46BE-405D-A279-11B5216AB854}</Project>
       <Name>EvilTemple.Support</Name>
       <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\NativeEngine.Interop\NativeEngine.Interop.csproj">
+      <Project>{FCBB1DF5-D676-4481-B51E-C9139C9AA749}</Project>
+      <Name>NativeEngine.Interop</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
