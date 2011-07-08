@@ -51,6 +51,13 @@ namespace EvilTemple
                 engine.OnMouseMove += e => Console.WriteLine("Mouse Move " + e.X + "," + e.Y);
                 engine.OnMouseDoubleClick += e => Console.WriteLine("Mouse Double Click " + e.X + "," + e.Y);
 
+
+                var scene = engine.mainScene();
+
+                var entity = scene.CreateEntity("meshes/pcs/pc_human_male/pc_human_male.mesh");
+                var sceneNode = scene.GetRootSceneNode().CreateChildSceneNode();
+                sceneNode.AttachObject(entity);
+
                 // Subscribe to the events the engine provides
                 //engine.OnKeyPress += shortcuts.HandleEvent;
                 //engine.OnDrawFrame += EventBus.Send<DrawFrameMessage>;
@@ -66,7 +73,7 @@ namespace EvilTemple
 
                 //EventBus.Send<ApplicationStartup>();
 
-                // Run the engine main loop););));
+                // Run the engine main loop););));));
                 while (true)
                 {
                     engine.processEvents();

@@ -65,6 +65,13 @@ public class Scene : IDisposable {
     return ret;
   }
 
+  public SceneNode GetRootSceneNode() {
+    IntPtr cPtr = NativeEngineInteropPINVOKE.Scene_GetRootSceneNode(swigCPtr);
+    SceneNode ret = (cPtr == IntPtr.Zero) ? null : new SceneNode(cPtr, false);
+    if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
 }
 
 }

@@ -228,6 +228,9 @@ class NativeEngineInteropPINVOKE {
   [DllImport("NativeEngine", EntryPoint="CSharp_Scene_CreateSceneNode__SWIG_1")]
   public static extern IntPtr Scene_CreateSceneNode__SWIG_1(HandleRef jarg1, string jarg2);
 
+  [DllImport("NativeEngine", EntryPoint="CSharp_Scene_GetRootSceneNode")]
+  public static extern IntPtr Scene_GetRootSceneNode(HandleRef jarg1);
+
   [DllImport("NativeEngine", EntryPoint="CSharp_NativeEngineSettings_argc_set")]
   public static extern void NativeEngineSettings_argc_set(HandleRef jarg1, int jarg2);
 
