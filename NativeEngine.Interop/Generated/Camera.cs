@@ -11,18 +11,20 @@ namespace EvilTemple.NativeEngineInterop {
 using System;
 using System.Runtime.InteropServices;
 
-public class Scene : SceneManager {
+public class Camera : IDisposable {
   private HandleRef swigCPtr;
+  protected bool swigCMemOwn;
 
-  internal Scene(IntPtr cPtr, bool cMemoryOwn) : base(NativeEngineInteropPINVOKE.Scene_SWIGUpcast(cPtr), cMemoryOwn) {
+  internal Camera(IntPtr cPtr, bool cMemoryOwn) {
+    swigCMemOwn = cMemoryOwn;
     swigCPtr = new HandleRef(this, cPtr);
   }
 
-  internal static HandleRef getCPtr(Scene obj) {
+  internal static HandleRef getCPtr(Camera obj) {
     return (obj == null) ? new HandleRef(null, IntPtr.Zero) : obj.swigCPtr;
   }
 
-  public override void Dispose() {
+  public virtual void Dispose() {
     lock(this) {
       if (swigCPtr.Handle != IntPtr.Zero) {
         if (swigCMemOwn) {
@@ -32,28 +34,23 @@ public class Scene : SceneManager {
         swigCPtr = new HandleRef(null, IntPtr.Zero);
       }
       GC.SuppressFinalize(this);
-      base.Dispose();
     }
   }
 
-  public BackgroundMap CreateBackgroundMap(string directory) {
-    IntPtr cPtr = NativeEngineInteropPINVOKE.Scene_CreateBackgroundMap(swigCPtr, directory);
-    BackgroundMap ret = (cPtr == IntPtr.Zero) ? null : new BackgroundMap(cPtr, false);
+  public void SetPosition(float x, float y, float z) {
+    NativeEngineInteropPINVOKE.Camera_SetPosition(swigCPtr, x, y, z);
+    if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public Vector3 GetPosition() {
+    Vector3 ret = new Vector3(NativeEngineInteropPINVOKE.Camera_GetPosition(swigCPtr), false);
     if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }
 
-  public Camera GetMainCamera() {
-    IntPtr cPtr = NativeEngineInteropPINVOKE.Scene_GetMainCamera(swigCPtr);
-    Camera ret = (cPtr == IntPtr.Zero) ? null : new Camera(cPtr, false);
+  public void Move(Vector3 vec) {
+    NativeEngineInteropPINVOKE.Camera_Move(swigCPtr, Vector3.getCPtr(vec));
     if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
-    return ret;
-  }
-
-  public Vector3 GetCameraOrigin() {
-    Vector3 ret = new Vector3(NativeEngineInteropPINVOKE.Scene_GetCameraOrigin(swigCPtr), false);
-    if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
-    return ret;
   }
 
 }

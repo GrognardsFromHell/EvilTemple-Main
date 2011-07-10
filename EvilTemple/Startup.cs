@@ -41,7 +41,7 @@ namespace EvilTemple
                 // Initialize resources
                 ResourceManager.addZipArchive("General", Path.Combine(paths.GeneratedDataPath, "data.zip"));
                 ResourceManager.addDirectory("General", Path.Combine(paths.InstallationPath, "data"));
-                ResourceManager.addDirectory("General", Path.Combine(paths.GeneratedDataPath, "data"));
+                ResourceManager.addDirectory("General", Path.Combine(paths.GeneratedDataPath, "override"));
                 ResourceManager.initializeGroup("General");
 
                 engine.OnKeyPress += e => Console.WriteLine("KEYPRESS: " + e.Text);
@@ -51,12 +51,26 @@ namespace EvilTemple
                 engine.OnMouseMove += e => Console.WriteLine("Mouse Move " + e.X + "," + e.Y);
                 engine.OnMouseDoubleClick += e => Console.WriteLine("Mouse Double Click " + e.X + "," + e.Y);
 
-
                 var scene = engine.mainScene();
 
                 var entity = scene.CreateEntity("meshes/pcs/pc_human_male/pc_human_male.mesh");
                 var sceneNode = scene.GetRootSceneNode().CreateChildSceneNode();
                 sceneNode.AttachObject(entity);
+
+                var light = scene.CreateLight();
+                light.setType(Light.LightTypes.LT_DIRECTIONAL);
+                light.setDirection(-0.6324093645670703858428703903848f,
+                    -0.77463436252716949786709498111783f,
+                    0f);
+                sceneNode.AttachObject(light);
+                const float PixelPerWorldTile = 28.2842703f;
+
+                sceneNode.setPosition(PixelPerWorldTile * 480, 0, -PixelPerWorldTile * 480);
+
+                var camera = scene.GetMainCamera();
+                camera.Move(new Vector3(PixelPerWorldTile * 480, 0, -PixelPerWorldTile * 480));
+
+                var background = scene.CreateBackgroundMap("backgroundmaps/map-2-hommlet-exterior");
 
                 // Subscribe to the events the engine provides
                 //engine.OnKeyPress += shortcuts.HandleEvent;
@@ -73,7 +87,7 @@ namespace EvilTemple
 
                 //EventBus.Send<ApplicationStartup>();
 
-                // Run the engine main loop););));));
+                // Run the engine main loop););));));););
                 while (true)
                 {
                     engine.processEvents();
