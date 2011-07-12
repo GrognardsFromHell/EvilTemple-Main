@@ -6,8 +6,6 @@ namespace EvilTemple.Runtime
 
     public interface IScene
     {
-        int ObjectsDrawn { get; }
-
         ISceneNode CreateNode();
 
         void Add(ISceneNode node);
@@ -15,8 +13,6 @@ namespace EvilTemple.Runtime
         void Remove(ISceneNode node);
 
         void Clear();
-
-        void AddOverlayText(ref Vector4 position, string text, ref Vector4 color, float lifetime);
     }
 
     public interface ISceneNode

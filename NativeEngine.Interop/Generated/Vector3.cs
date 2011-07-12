@@ -6,7 +6,7 @@
  * the SWIG interface file instead.
  * ----------------------------------------------------------------------------- */
 
-namespace EvilTemple.NativeEngineInterop {
+namespace EvilTemple.NativeEngineInterop.Generated {
 
 using System;
 using System.Runtime.InteropServices;
@@ -41,37 +41,37 @@ public class Vector3 : IDisposable {
     }
   }
 
-  public float x {
+  public float X {
     set {
-      NativeEngineInteropPINVOKE.Vector3_x_set(swigCPtr, value);
+      NativeEngineInteropPINVOKE.Vector3_X_set(swigCPtr, value);
       if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
     } 
     get {
-      float ret = NativeEngineInteropPINVOKE.Vector3_x_get(swigCPtr);
+      float ret = NativeEngineInteropPINVOKE.Vector3_X_get(swigCPtr);
       if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
       return ret;
     } 
   }
 
-  public float y {
+  public float Y {
     set {
-      NativeEngineInteropPINVOKE.Vector3_y_set(swigCPtr, value);
+      NativeEngineInteropPINVOKE.Vector3_Y_set(swigCPtr, value);
       if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
     } 
     get {
-      float ret = NativeEngineInteropPINVOKE.Vector3_y_get(swigCPtr);
+      float ret = NativeEngineInteropPINVOKE.Vector3_Y_get(swigCPtr);
       if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
       return ret;
     } 
   }
 
-  public float z {
+  public float Z {
     set {
-      NativeEngineInteropPINVOKE.Vector3_z_set(swigCPtr, value);
+      NativeEngineInteropPINVOKE.Vector3_Z_set(swigCPtr, value);
       if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
     } 
     get {
-      float ret = NativeEngineInteropPINVOKE.Vector3_z_get(swigCPtr);
+      float ret = NativeEngineInteropPINVOKE.Vector3_Z_get(swigCPtr);
       if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
       return ret;
     } 

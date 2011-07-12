@@ -6,7 +6,7 @@
  * the SWIG interface file instead.
  * ----------------------------------------------------------------------------- */
 
-namespace EvilTemple.NativeEngineInterop {
+namespace EvilTemple.NativeEngineInterop.Generated {
 
 using System;
 using System.Runtime.InteropServices;
@@ -198,23 +198,116 @@ class NativeEngineInteropPINVOKE {
   [DllImport("NativeEngine", EntryPoint="CSharp_QByteArray_constData")]
   public static extern IntPtr QByteArray_constData(HandleRef jarg1);
 
-  [DllImport("NativeEngine", EntryPoint="CSharp_SceneNode_AttachObject")]
-  public static extern void SceneNode_AttachObject(HandleRef jarg1, HandleRef jarg2);
+  [DllImport("NativeEngine", EntryPoint="CSharp_Vector3_X_set")]
+  public static extern void Vector3_X_set(HandleRef jarg1, float jarg2);
 
-  [DllImport("NativeEngine", EntryPoint="CSharp_SceneNode_CreateChildSceneNode__SWIG_0")]
-  public static extern IntPtr SceneNode_CreateChildSceneNode__SWIG_0(HandleRef jarg1);
+  [DllImport("NativeEngine", EntryPoint="CSharp_Vector3_X_get")]
+  public static extern float Vector3_X_get(HandleRef jarg1);
 
-  [DllImport("NativeEngine", EntryPoint="CSharp_SceneNode_CreateChildSceneNode__SWIG_1")]
-  public static extern IntPtr SceneNode_CreateChildSceneNode__SWIG_1(HandleRef jarg1, string jarg2);
+  [DllImport("NativeEngine", EntryPoint="CSharp_Vector3_Y_set")]
+  public static extern void Vector3_Y_set(HandleRef jarg1, float jarg2);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_Vector3_Y_get")]
+  public static extern float Vector3_Y_get(HandleRef jarg1);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_Vector3_Z_set")]
+  public static extern void Vector3_Z_set(HandleRef jarg1, float jarg2);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_Vector3_Z_get")]
+  public static extern float Vector3_Z_get(HandleRef jarg1);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_new_Vector3")]
+  public static extern IntPtr new_Vector3(float jarg1, float jarg2, float jarg3);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_delete_Vector3")]
+  public static extern void delete_Vector3(HandleRef jarg1);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_Quaternion_X_set")]
+  public static extern void Quaternion_X_set(HandleRef jarg1, float jarg2);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_Quaternion_X_get")]
+  public static extern float Quaternion_X_get(HandleRef jarg1);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_Quaternion_Y_set")]
+  public static extern void Quaternion_Y_set(HandleRef jarg1, float jarg2);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_Quaternion_Y_get")]
+  public static extern float Quaternion_Y_get(HandleRef jarg1);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_Quaternion_Z_set")]
+  public static extern void Quaternion_Z_set(HandleRef jarg1, float jarg2);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_Quaternion_Z_get")]
+  public static extern float Quaternion_Z_get(HandleRef jarg1);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_Quaternion_W_set")]
+  public static extern void Quaternion_W_set(HandleRef jarg1, float jarg2);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_Quaternion_W_get")]
+  public static extern float Quaternion_W_get(HandleRef jarg1);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_new_Quaternion")]
+  public static extern IntPtr new_Quaternion(float jarg1, float jarg2, float jarg3, float jarg4);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_delete_Quaternion")]
+  public static extern void delete_Quaternion(HandleRef jarg1);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_SceneNode_attachObject")]
+  public static extern void SceneNode_attachObject(HandleRef jarg1, HandleRef jarg2);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_SceneNode_numAttachedObjects")]
+  public static extern ushort SceneNode_numAttachedObjects(HandleRef jarg1);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_SceneNode_getAttachedObject")]
+  public static extern IntPtr SceneNode_getAttachedObject(HandleRef jarg1, ushort jarg2);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_SceneNode_createChildSceneNode__SWIG_0")]
+  public static extern IntPtr SceneNode_createChildSceneNode__SWIG_0(HandleRef jarg1);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_SceneNode_createChildSceneNode__SWIG_1")]
+  public static extern IntPtr SceneNode_createChildSceneNode__SWIG_1(HandleRef jarg1, string jarg2);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_SceneNode_getParentSceneNode")]
+  public static extern IntPtr SceneNode_getParentSceneNode(HandleRef jarg1);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_SceneNode_removeChild")]
+  public static extern void SceneNode_removeChild(HandleRef jarg1, HandleRef jarg2);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_SceneNode_addChild")]
+  public static extern void SceneNode_addChild(HandleRef jarg1, HandleRef jarg2);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_SceneNode_setVisible__SWIG_0")]
+  public static extern void SceneNode_setVisible__SWIG_0(HandleRef jarg1, bool jarg2, bool jarg3);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_SceneNode_setVisible__SWIG_1")]
+  public static extern void SceneNode_setVisible__SWIG_1(HandleRef jarg1, bool jarg2);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_SceneNode_getName")]
+  public static extern string SceneNode_getName(HandleRef jarg1);
 
   [DllImport("NativeEngine", EntryPoint="CSharp_SceneNode_setPosition")]
   public static extern void SceneNode_setPosition(HandleRef jarg1, float jarg2, float jarg3, float jarg4);
 
+  [DllImport("NativeEngine", EntryPoint="CSharp_SceneNode_getPosition")]
+  public static extern IntPtr SceneNode_getPosition(HandleRef jarg1);
+
   [DllImport("NativeEngine", EntryPoint="CSharp_SceneNode_setOrientation")]
   public static extern void SceneNode_setOrientation(HandleRef jarg1, float jarg2, float jarg3, float jarg4, float jarg5);
 
+  [DllImport("NativeEngine", EntryPoint="CSharp_SceneNode_getOrientation")]
+  public static extern IntPtr SceneNode_getOrientation(HandleRef jarg1);
+
   [DllImport("NativeEngine", EntryPoint="CSharp_SceneNode_setScale")]
   public static extern void SceneNode_setScale(HandleRef jarg1, float jarg2, float jarg3, float jarg4);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_SceneNode_getScale")]
+  public static extern IntPtr SceneNode_getScale(HandleRef jarg1);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_SceneNode_numChildren")]
+  public static extern ushort SceneNode_numChildren(HandleRef jarg1);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_SceneNode_getChild")]
+  public static extern IntPtr SceneNode_getChild(HandleRef jarg1, ushort jarg2);
 
   [DllImport("NativeEngine", EntryPoint="CSharp_ColourValue_r_set")]
   public static extern void ColourValue_r_set(HandleRef jarg1, float jarg2);
@@ -239,30 +332,6 @@ class NativeEngineInteropPINVOKE {
 
   [DllImport("NativeEngine", EntryPoint="CSharp_ColourValue_a_get")]
   public static extern float ColourValue_a_get(HandleRef jarg1);
-
-  [DllImport("NativeEngine", EntryPoint="CSharp_Vector3_x_set")]
-  public static extern void Vector3_x_set(HandleRef jarg1, float jarg2);
-
-  [DllImport("NativeEngine", EntryPoint="CSharp_Vector3_x_get")]
-  public static extern float Vector3_x_get(HandleRef jarg1);
-
-  [DllImport("NativeEngine", EntryPoint="CSharp_Vector3_y_set")]
-  public static extern void Vector3_y_set(HandleRef jarg1, float jarg2);
-
-  [DllImport("NativeEngine", EntryPoint="CSharp_Vector3_y_get")]
-  public static extern float Vector3_y_get(HandleRef jarg1);
-
-  [DllImport("NativeEngine", EntryPoint="CSharp_Vector3_z_set")]
-  public static extern void Vector3_z_set(HandleRef jarg1, float jarg2);
-
-  [DllImport("NativeEngine", EntryPoint="CSharp_Vector3_z_get")]
-  public static extern float Vector3_z_get(HandleRef jarg1);
-
-  [DllImport("NativeEngine", EntryPoint="CSharp_new_Vector3")]
-  public static extern IntPtr new_Vector3(float jarg1, float jarg2, float jarg3);
-
-  [DllImport("NativeEngine", EntryPoint="CSharp_delete_Vector3")]
-  public static extern void delete_Vector3(HandleRef jarg1);
 
   [DllImport("NativeEngine", EntryPoint="CSharp_Light_setType")]
   public static extern void Light_setType(HandleRef jarg1, int jarg2);
@@ -422,6 +491,9 @@ class NativeEngineInteropPINVOKE {
 
   [DllImport("NativeEngine", EntryPoint="CSharp_Entity_SWIGUpcast")]
   public static extern IntPtr Entity_SWIGUpcast(IntPtr jarg1);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_SceneNode_SWIGUpcast")]
+  public static extern IntPtr SceneNode_SWIGUpcast(IntPtr jarg1);
 
   [DllImport("NativeEngine", EntryPoint="CSharp_Light_SWIGUpcast")]
   public static extern IntPtr Light_SWIGUpcast(IntPtr jarg1);

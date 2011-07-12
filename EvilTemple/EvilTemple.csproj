@@ -117,6 +117,10 @@
       <Project>{FCBB1DF5-D676-4481-B51E-C9139C9AA749}</Project>
       <Name>NativeEngine.Interop</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ThirdParty\Newtonsoft.Json\Newtonsoft.Json.csproj">
+      <Project>{A9AE40FF-1A21-414A-9FE7-3BE13644CC6D}</Project>
+      <Name>Newtonsoft.Json</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

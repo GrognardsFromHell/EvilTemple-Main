@@ -6,7 +6,7 @@ using EvilTemple.Runtime;
 
 #endregion
 
-namespace EvilTemple.NativeEngineInterop
+namespace EvilTemple.NativeEngineInterop.Generated
 {
 
     internal delegate void NativeKeyEventHandler(

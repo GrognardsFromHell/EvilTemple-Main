@@ -11,17 +11,21 @@ namespace EvilTemple.NativeEngineInterop.Generated {
 using System;
 using System.Runtime.InteropServices;
 
-public class ColourValue : IDisposable {
+public class Quaternion : IDisposable {
   private HandleRef swigCPtr;
   protected bool swigCMemOwn;
 
-  internal ColourValue(IntPtr cPtr, bool cMemoryOwn) {
+  internal Quaternion(IntPtr cPtr, bool cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = new HandleRef(this, cPtr);
   }
 
-  internal static HandleRef getCPtr(ColourValue obj) {
+  internal static HandleRef getCPtr(Quaternion obj) {
     return (obj == null) ? new HandleRef(null, IntPtr.Zero) : obj.swigCPtr;
+  }
+
+  ~Quaternion() {
+    Dispose();
   }
 
   public virtual void Dispose() {
@@ -29,7 +33,7 @@ public class ColourValue : IDisposable {
       if (swigCPtr.Handle != IntPtr.Zero) {
         if (swigCMemOwn) {
           swigCMemOwn = false;
-          throw new MethodAccessException("C++ destructor does not have public access");
+          NativeEngineInteropPINVOKE.delete_Quaternion(swigCPtr);
         }
         swigCPtr = new HandleRef(null, IntPtr.Zero);
       }
@@ -37,52 +41,56 @@ public class ColourValue : IDisposable {
     }
   }
 
-  public float r {
+  public float X {
     set {
-      NativeEngineInteropPINVOKE.ColourValue_r_set(swigCPtr, value);
+      NativeEngineInteropPINVOKE.Quaternion_X_set(swigCPtr, value);
       if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
     } 
     get {
-      float ret = NativeEngineInteropPINVOKE.ColourValue_r_get(swigCPtr);
+      float ret = NativeEngineInteropPINVOKE.Quaternion_X_get(swigCPtr);
       if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
       return ret;
     } 
   }
 
-  public float g {
+  public float Y {
     set {
-      NativeEngineInteropPINVOKE.ColourValue_g_set(swigCPtr, value);
+      NativeEngineInteropPINVOKE.Quaternion_Y_set(swigCPtr, value);
       if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
     } 
     get {
-      float ret = NativeEngineInteropPINVOKE.ColourValue_g_get(swigCPtr);
+      float ret = NativeEngineInteropPINVOKE.Quaternion_Y_get(swigCPtr);
       if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
       return ret;
     } 
   }
 
-  public float b {
+  public float Z {
     set {
-      NativeEngineInteropPINVOKE.ColourValue_b_set(swigCPtr, value);
+      NativeEngineInteropPINVOKE.Quaternion_Z_set(swigCPtr, value);
       if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
     } 
     get {
-      float ret = NativeEngineInteropPINVOKE.ColourValue_b_get(swigCPtr);
+      float ret = NativeEngineInteropPINVOKE.Quaternion_Z_get(swigCPtr);
       if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
       return ret;
     } 
   }
 
-  public float a {
+  public float W {
     set {
-      NativeEngineInteropPINVOKE.ColourValue_a_set(swigCPtr, value);
+      NativeEngineInteropPINVOKE.Quaternion_W_set(swigCPtr, value);
       if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
     } 
     get {
-      float ret = NativeEngineInteropPINVOKE.ColourValue_a_get(swigCPtr);
+      float ret = NativeEngineInteropPINVOKE.Quaternion_W_get(swigCPtr);
       if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
       return ret;
     } 
+  }
+
+  public Quaternion(float w, float x, float y, float z) : this(NativeEngineInteropPINVOKE.new_Quaternion(w, x, y, z), true) {
+    if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
   }
 
 }

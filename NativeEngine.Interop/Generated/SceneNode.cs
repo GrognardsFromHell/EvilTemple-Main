@@ -6,17 +6,15 @@
  * the SWIG interface file instead.
  * ----------------------------------------------------------------------------- */
 
-namespace EvilTemple.NativeEngineInterop {
+namespace EvilTemple.NativeEngineInterop.Generated {
 
 using System;
 using System.Runtime.InteropServices;
 
-public class SceneNode : IDisposable {
+public class SceneNode : Node {
   private HandleRef swigCPtr;
-  protected bool swigCMemOwn;
 
-  internal SceneNode(IntPtr cPtr, bool cMemoryOwn) {
-    swigCMemOwn = cMemoryOwn;
+  internal SceneNode(IntPtr cPtr, bool cMemoryOwn) : base(NativeEngineInteropPINVOKE.SceneNode_SWIGUpcast(cPtr), cMemoryOwn) {
     swigCPtr = new HandleRef(this, cPtr);
   }
 
@@ -24,7 +22,7 @@ public class SceneNode : IDisposable {
     return (obj == null) ? new HandleRef(null, IntPtr.Zero) : obj.swigCPtr;
   }
 
-  public virtual void Dispose() {
+  public override void Dispose() {
     lock(this) {
       if (swigCPtr.Handle != IntPtr.Zero) {
         if (swigCMemOwn) {
@@ -34,24 +32,71 @@ public class SceneNode : IDisposable {
         swigCPtr = new HandleRef(null, IntPtr.Zero);
       }
       GC.SuppressFinalize(this);
+      base.Dispose();
     }
   }
 
-  public void AttachObject(MovableObject obj) {
-    NativeEngineInteropPINVOKE.SceneNode_AttachObject(swigCPtr, MovableObject.getCPtr(obj));
+  public void attachObject(MovableObject obj) {
+    NativeEngineInteropPINVOKE.SceneNode_attachObject(swigCPtr, MovableObject.getCPtr(obj));
     if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
   }
 
-  public SceneNode CreateChildSceneNode() {
-    IntPtr cPtr = NativeEngineInteropPINVOKE.SceneNode_CreateChildSceneNode__SWIG_0(swigCPtr);
+  public ushort numAttachedObjects() {
+    ushort ret = NativeEngineInteropPINVOKE.SceneNode_numAttachedObjects(swigCPtr);
+    if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  public MovableObject getAttachedObject(ushort index) {
+    IntPtr cPtr = NativeEngineInteropPINVOKE.SceneNode_getAttachedObject(swigCPtr, index);
+    MovableObject ret = (cPtr == IntPtr.Zero) ? null : new MovableObject(cPtr, false);
+    if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  public SceneNode createChildSceneNode() {
+    IntPtr cPtr = NativeEngineInteropPINVOKE.SceneNode_createChildSceneNode__SWIG_0(swigCPtr);
     SceneNode ret = (cPtr == IntPtr.Zero) ? null : new SceneNode(cPtr, false);
     if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }
 
-  public SceneNode CreateChildSceneNode(string name) {
-    IntPtr cPtr = NativeEngineInteropPINVOKE.SceneNode_CreateChildSceneNode__SWIG_1(swigCPtr, name);
+  public SceneNode createChildSceneNode(string name) {
+    IntPtr cPtr = NativeEngineInteropPINVOKE.SceneNode_createChildSceneNode__SWIG_1(swigCPtr, name);
     SceneNode ret = (cPtr == IntPtr.Zero) ? null : new SceneNode(cPtr, false);
+    if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  public SceneNode getParentSceneNode() {
+    IntPtr cPtr = NativeEngineInteropPINVOKE.SceneNode_getParentSceneNode(swigCPtr);
+    SceneNode ret = (cPtr == IntPtr.Zero) ? null : new SceneNode(cPtr, false);
+    if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  public void removeChild(Node child) {
+    NativeEngineInteropPINVOKE.SceneNode_removeChild(swigCPtr, Node.getCPtr(child));
+    if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public void addChild(Node child) {
+    NativeEngineInteropPINVOKE.SceneNode_addChild(swigCPtr, Node.getCPtr(child));
+    if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public void setVisible(bool visible, bool cascade) {
+    NativeEngineInteropPINVOKE.SceneNode_setVisible__SWIG_0(swigCPtr, visible, cascade);
+    if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public void setVisible(bool visible) {
+    NativeEngineInteropPINVOKE.SceneNode_setVisible__SWIG_1(swigCPtr, visible);
+    if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public string getName() {
+    string ret = NativeEngineInteropPINVOKE.SceneNode_getName(swigCPtr);
     if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }
@@ -61,14 +106,45 @@ public class SceneNode : IDisposable {
     if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
   }
 
+  public Vector3 getPosition() {
+    Vector3 ret = new Vector3(NativeEngineInteropPINVOKE.SceneNode_getPosition(swigCPtr), false);
+    if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
   public void setOrientation(float w, float x, float y, float z) {
     NativeEngineInteropPINVOKE.SceneNode_setOrientation(swigCPtr, w, x, y, z);
     if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
   }
 
+  public Quaternion getOrientation() {
+    Quaternion ret = new Quaternion(NativeEngineInteropPINVOKE.SceneNode_getOrientation(swigCPtr), false);
+    if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
   public void setScale(float x, float y, float z) {
     NativeEngineInteropPINVOKE.SceneNode_setScale(swigCPtr, x, y, z);
     if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public Vector3 getScale() {
+    Vector3 ret = new Vector3(NativeEngineInteropPINVOKE.SceneNode_getScale(swigCPtr), false);
+    if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  public ushort numChildren() {
+    ushort ret = NativeEngineInteropPINVOKE.SceneNode_numChildren(swigCPtr);
+    if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  public Node getChild(ushort index) {
+    IntPtr cPtr = NativeEngineInteropPINVOKE.SceneNode_getChild(swigCPtr, index);
+    Node ret = (cPtr == IntPtr.Zero) ? null : new Node(cPtr, false);
+    if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
   }
 
 }

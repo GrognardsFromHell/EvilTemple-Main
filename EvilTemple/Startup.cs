@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using EvilTemple.NativeEngineInterop;
+using EvilTemple.NativeEngineInterop.Generated;
+using EvilTemple.Rules;
 using EvilTemple.Support;
 using EvilTemple.Runtime;
+using Newtonsoft.Json;
 
 namespace EvilTemple
 {
@@ -51,18 +55,23 @@ namespace EvilTemple
                 engine.OnMouseMove += e => Console.WriteLine("Mouse Move " + e.X + "," + e.Y);
                 engine.OnMouseDoubleClick += e => Console.WriteLine("Mouse Double Click " + e.X + "," + e.Y);
 
+                var staticObjectsJson = ResourceManager.ReadFile(@"maps/map-2-hommlet-exterior/staticObjects.json");
+
+                var reader = new JsonTextReader(new StringReader(Encoding.UTF8.GetString(staticObjectsJson)));
+                var objects = BaseObjectSerializer.Serializer.Deserialize<List<BaseObject>>(reader);
+
                 var scene = engine.mainScene();
 
                 var entity = scene.CreateEntity("meshes/pcs/pc_human_male/pc_human_male.mesh");
-                var sceneNode = scene.GetRootSceneNode().CreateChildSceneNode();
-                sceneNode.AttachObject(entity);
+                var sceneNode = scene.GetRootSceneNode().createChildSceneNode();
+                sceneNode.attachObject(entity);
 
                 var light = scene.CreateLight();
                 light.setType(Light.LightTypes.LT_DIRECTIONAL);
                 light.setDirection(-0.6324093645670703858428703903848f,
                     -0.77463436252716949786709498111783f,
                     0f);
-                sceneNode.AttachObject(light);
+                sceneNode.attachObject(light);
                 const float PixelPerWorldTile = 28.2842703f;
 
                 sceneNode.setPosition(PixelPerWorldTile * 480, 0, -PixelPerWorldTile * 480);

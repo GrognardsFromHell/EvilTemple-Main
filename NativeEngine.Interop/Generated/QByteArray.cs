@@ -6,7 +6,7 @@
  * the SWIG interface file instead.
  * ----------------------------------------------------------------------------- */
 
-namespace EvilTemple.NativeEngineInterop {
+namespace EvilTemple.NativeEngineInterop.Generated {
 
 using System;
 using System.Runtime.InteropServices;

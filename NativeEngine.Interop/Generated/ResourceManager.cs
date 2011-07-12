@@ -6,12 +6,12 @@
  * the SWIG interface file instead.
  * ----------------------------------------------------------------------------- */
 
-namespace EvilTemple.NativeEngineInterop {
+namespace EvilTemple.NativeEngineInterop.Generated {
 
 using System;
 using System.Runtime.InteropServices;
 
-public class ResourceManager : IDisposable {
+public partial class ResourceManager : IDisposable {
   private HandleRef swigCPtr;
   protected bool swigCMemOwn;
 

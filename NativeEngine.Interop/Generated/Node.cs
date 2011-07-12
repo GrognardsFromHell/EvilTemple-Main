@@ -11,16 +11,16 @@ namespace EvilTemple.NativeEngineInterop.Generated {
 using System;
 using System.Runtime.InteropServices;
 
-public class Camera : IDisposable {
+public class Node : IDisposable {
   private HandleRef swigCPtr;
   protected bool swigCMemOwn;
 
-  internal Camera(IntPtr cPtr, bool cMemoryOwn) {
+  internal Node(IntPtr cPtr, bool cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = new HandleRef(this, cPtr);
   }
 
-  internal static HandleRef getCPtr(Camera obj) {
+  internal static HandleRef getCPtr(Node obj) {
     return (obj == null) ? new HandleRef(null, IntPtr.Zero) : obj.swigCPtr;
   }
 
@@ -35,22 +35,6 @@ public class Camera : IDisposable {
       }
       GC.SuppressFinalize(this);
     }
-  }
-
-  public void SetPosition(float x, float y, float z) {
-    NativeEngineInteropPINVOKE.Camera_SetPosition(swigCPtr, x, y, z);
-    if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
-  }
-
-  public Vector3 GetPosition() {
-    Vector3 ret = new Vector3(NativeEngineInteropPINVOKE.Camera_GetPosition(swigCPtr), false);
-    if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
-    return ret;
-  }
-
-  public void Move(Vector3 vec) {
-    NativeEngineInteropPINVOKE.Camera_Move(swigCPtr, Vector3.getCPtr(vec));
-    if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
   }
 
 }

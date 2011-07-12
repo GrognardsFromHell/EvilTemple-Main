@@ -35,6 +35,7 @@
     <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="OpenTK, Version=1.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
@@ -58,9 +59,11 @@
     <Compile Include="Generated\NativeEngineSettings.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Generated\Node.cs" />
     <Compile Include="Generated\QByteArray.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Generated\Quaternion.cs" />
     <Compile Include="Generated\ResourceManager.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -75,6 +78,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QObjectWrapper.cs" />
     <Compile Include="QtKeyConverter.cs" />
+    <Compile Include="ResourceManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EvilTemple.Runtime\EvilTemple.Runtime.csproj">
