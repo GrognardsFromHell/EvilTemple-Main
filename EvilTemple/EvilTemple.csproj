@@ -60,9 +60,11 @@
       <HintPath>..\thirdparty\ninject-2.2\Ninject.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="OpenTK, Version=1.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL" />
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

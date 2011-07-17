@@ -11,20 +11,20 @@ namespace EvilTemple.NativeEngineInterop.Generated {
 using System;
 using System.Runtime.InteropServices;
 
-public class NativeEngineSettings : IDisposable {
+public class PickResult : IDisposable {
   private HandleRef swigCPtr;
   protected bool swigCMemOwn;
 
-  internal NativeEngineSettings(IntPtr cPtr, bool cMemoryOwn) {
+  internal PickResult(IntPtr cPtr, bool cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = new HandleRef(this, cPtr);
   }
 
-  internal static HandleRef getCPtr(NativeEngineSettings obj) {
+  internal static HandleRef getCPtr(PickResult obj) {
     return (obj == null) ? new HandleRef(null, IntPtr.Zero) : obj.swigCPtr;
   }
 
-  ~NativeEngineSettings() {
+  ~PickResult() {
     Dispose();
   }
 
@@ -33,7 +33,7 @@ public class NativeEngineSettings : IDisposable {
       if (swigCPtr.Handle != IntPtr.Zero) {
         if (swigCMemOwn) {
           swigCMemOwn = false;
-          NativeEngineInteropPINVOKE.delete_NativeEngineSettings(swigCPtr);
+          NativeEngineInteropPINVOKE.delete_PickResult(swigCPtr);
         }
         swigCPtr = new HandleRef(null, IntPtr.Zero);
       }
@@ -41,44 +41,31 @@ public class NativeEngineSettings : IDisposable {
     }
   }
 
-  public /* cstype* out */ IntPtr logCallback {
-        set { NativeEngineInteropPINVOKE.NativeEngineSettings_logCallback_set(swigCPtr, /* csin* */ value);
-      if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve(); }
-
-  get {
-        /* csvarout* */ IntPtr ret = NativeEngineInteropPINVOKE.NativeEngineSettings_logCallback_get(swigCPtr);
-    if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
-        return ret;
-  }
-
-  }
-
-  public int argc {
+  public long id {
     set {
-      NativeEngineInteropPINVOKE.NativeEngineSettings_argc_set(swigCPtr, value);
+      NativeEngineInteropPINVOKE.PickResult_id_set(swigCPtr, value);
       if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
     } 
     get {
-      int ret = NativeEngineInteropPINVOKE.NativeEngineSettings_argc_get(swigCPtr);
+      long ret = NativeEngineInteropPINVOKE.PickResult_id_get(swigCPtr);
       if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
       return ret;
     } 
   }
 
-  public SWIGTYPE_p_p_char argv {
+  public float distance {
     set {
-      NativeEngineInteropPINVOKE.NativeEngineSettings_argv_set(swigCPtr, SWIGTYPE_p_p_char.getCPtr(value));
+      NativeEngineInteropPINVOKE.PickResult_distance_set(swigCPtr, value);
       if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
     } 
     get {
-      IntPtr cPtr = NativeEngineInteropPINVOKE.NativeEngineSettings_argv_get(swigCPtr);
-      SWIGTYPE_p_p_char ret = (cPtr == IntPtr.Zero) ? null : new SWIGTYPE_p_p_char(cPtr, false);
+      float ret = NativeEngineInteropPINVOKE.PickResult_distance_get(swigCPtr);
       if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
       return ret;
     } 
   }
 
-  public NativeEngineSettings() : this(NativeEngineInteropPINVOKE.new_NativeEngineSettings(), true) {
+  public PickResult() : this(NativeEngineInteropPINVOKE.new_PickResult(), true) {
     if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
   }
 

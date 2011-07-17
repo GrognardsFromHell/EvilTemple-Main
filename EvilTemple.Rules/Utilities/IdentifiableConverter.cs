@@ -1,6 +1,7 @@
 ﻿#region
 
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using EvilTemple.Runtime;
 using Newtonsoft.Json;
@@ -30,8 +31,12 @@ namespace EvilTemple.Rules.Utilities
 
             if (_registry == null)
                 _registry = Services.Get<TRegistry>();
-            
-            return _registry[id];
+
+            try {
+                return _registry[id];
+            } catch (KeyNotFoundException e) {
+                throw new ArgumentException("Couldn't find identifiable object " + objectType + " with id '" + id + "'", e);
+            }
         }
 
         public override bool CanConvert(Type objectType)

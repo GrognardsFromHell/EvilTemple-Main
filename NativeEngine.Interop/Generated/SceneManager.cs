@@ -86,6 +86,50 @@ public class SceneManager : IDisposable {
     return ret;
   }
 
+  public Animation CreateAnimation(string name, float length) {
+    IntPtr cPtr = NativeEngineInteropPINVOKE.SceneManager_CreateAnimation(swigCPtr, name, length);
+    Animation ret = (cPtr == IntPtr.Zero) ? null : new Animation(cPtr, false);
+    if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  public Animation GetAnimation(string name) {
+    IntPtr cPtr = NativeEngineInteropPINVOKE.SceneManager_GetAnimation(swigCPtr, name);
+    Animation ret = (cPtr == IntPtr.Zero) ? null : new Animation(cPtr, false);
+    if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  public bool HasAnimation(string name) {
+    bool ret = NativeEngineInteropPINVOKE.SceneManager_HasAnimation(swigCPtr, name);
+    if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  public void DestroyAnimation(string name) {
+    NativeEngineInteropPINVOKE.SceneManager_DestroyAnimation(swigCPtr, name);
+    if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public AnimationState CreateAnimationState(string animName) {
+    IntPtr cPtr = NativeEngineInteropPINVOKE.SceneManager_CreateAnimationState(swigCPtr, animName);
+    AnimationState ret = (cPtr == IntPtr.Zero) ? null : new AnimationState(cPtr, false);
+    if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  public void destroyAnimationState(string name) {
+    NativeEngineInteropPINVOKE.SceneManager_destroyAnimationState(swigCPtr, name);
+    if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public AnimationState getAnimationState(string name) {
+    IntPtr cPtr = NativeEngineInteropPINVOKE.SceneManager_getAnimationState(swigCPtr, name);
+    AnimationState ret = (cPtr == IntPtr.Zero) ? null : new AnimationState(cPtr, false);
+    if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
 }
 
 }

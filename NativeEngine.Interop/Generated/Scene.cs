@@ -43,6 +43,13 @@ public class Scene : SceneManager {
     return ret;
   }
 
+  public GroundDisc CreateGroundDisc(string material) {
+    IntPtr cPtr = NativeEngineInteropPINVOKE.Scene_CreateGroundDisc(swigCPtr, material);
+    GroundDisc ret = (cPtr == IntPtr.Zero) ? null : new GroundDisc(cPtr, false);
+    if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
   public Camera GetMainCamera() {
     IntPtr cPtr = NativeEngineInteropPINVOKE.Scene_GetMainCamera(swigCPtr);
     Camera ret = (cPtr == IntPtr.Zero) ? null : new Camera(cPtr, false);
@@ -52,6 +59,13 @@ public class Scene : SceneManager {
 
   public Vector3 GetCameraOrigin() {
     Vector3 ret = new Vector3(NativeEngineInteropPINVOKE.Scene_GetCameraOrigin(swigCPtr), false);
+    if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  public PickResultList pick(float x, float y) {
+    IntPtr cPtr = NativeEngineInteropPINVOKE.Scene_pick(swigCPtr, x, y);
+    PickResultList ret = (cPtr == IntPtr.Zero) ? null : new PickResultList(cPtr, true);
     if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }

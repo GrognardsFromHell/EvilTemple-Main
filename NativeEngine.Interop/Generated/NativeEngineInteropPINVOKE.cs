@@ -198,6 +198,27 @@ class NativeEngineInteropPINVOKE {
   [DllImport("NativeEngine", EntryPoint="CSharp_QByteArray_constData")]
   public static extern IntPtr QByteArray_constData(HandleRef jarg1);
 
+  [DllImport("NativeEngine", EntryPoint="CSharp_MovableObject_setSelectionData")]
+  public static extern void MovableObject_setSelectionData(HandleRef jarg1, long jarg2, float jarg3, float jarg4);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_MovableObject_hasSelectionData")]
+  public static extern bool MovableObject_hasSelectionData(HandleRef jarg1);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_MovableObject_clearSelectionData")]
+  public static extern void MovableObject_clearSelectionData(HandleRef jarg1);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_MovableObject_getSelectionId")]
+  public static extern long MovableObject_getSelectionId(HandleRef jarg1);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_MovableObject_getSelectionRadius")]
+  public static extern float MovableObject_getSelectionRadius(HandleRef jarg1);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_MovableObject_getSelectionHeight")]
+  public static extern float MovableObject_getSelectionHeight(HandleRef jarg1);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_Node_setInitialState")]
+  public static extern void Node_setInitialState(HandleRef jarg1);
+
   [DllImport("NativeEngine", EntryPoint="CSharp_Vector3_X_set")]
   public static extern void Vector3_X_set(HandleRef jarg1, float jarg2);
 
@@ -246,8 +267,14 @@ class NativeEngineInteropPINVOKE {
   [DllImport("NativeEngine", EntryPoint="CSharp_Quaternion_W_get")]
   public static extern float Quaternion_W_get(HandleRef jarg1);
 
-  [DllImport("NativeEngine", EntryPoint="CSharp_new_Quaternion")]
-  public static extern IntPtr new_Quaternion(float jarg1, float jarg2, float jarg3, float jarg4);
+  [DllImport("NativeEngine", EntryPoint="CSharp_new_Quaternion__SWIG_0")]
+  public static extern IntPtr new_Quaternion__SWIG_0();
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_new_Quaternion__SWIG_1")]
+  public static extern IntPtr new_Quaternion__SWIG_1(float jarg1, float jarg2, float jarg3, float jarg4);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_Quaternion_FromAngleAxis")]
+  public static extern void Quaternion_FromAngleAxis(HandleRef jarg1, float jarg2, HandleRef jarg3);
 
   [DllImport("NativeEngine", EntryPoint="CSharp_delete_Quaternion")]
   public static extern void delete_Quaternion(HandleRef jarg1);
@@ -396,6 +423,45 @@ class NativeEngineInteropPINVOKE {
   [DllImport("NativeEngine", EntryPoint="CSharp_Light_getPowerScale")]
   public static extern float Light_getPowerScale(HandleRef jarg1);
 
+  [DllImport("NativeEngine", EntryPoint="CSharp_TransformKeyFrame_setTranslate")]
+  public static extern void TransformKeyFrame_setTranslate(HandleRef jarg1, HandleRef jarg2);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_TransformKeyFrame_getTranslate")]
+  public static extern IntPtr TransformKeyFrame_getTranslate(HandleRef jarg1);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_TransformKeyFrame_setScale")]
+  public static extern void TransformKeyFrame_setScale(HandleRef jarg1, HandleRef jarg2);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_TransformKeyFrame_getScale")]
+  public static extern IntPtr TransformKeyFrame_getScale(HandleRef jarg1);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_TransformKeyFrame_setRotation")]
+  public static extern void TransformKeyFrame_setRotation(HandleRef jarg1, HandleRef jarg2);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_TransformKeyFrame_getRotation")]
+  public static extern IntPtr TransformKeyFrame_getRotation(HandleRef jarg1);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_NodeAnimationTrack_createNodeKeyFrame")]
+  public static extern IntPtr NodeAnimationTrack_createNodeKeyFrame(HandleRef jarg1, float jarg2);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_Animation_createNodeTrack")]
+  public static extern IntPtr Animation_createNodeTrack(HandleRef jarg1, ushort jarg2, HandleRef jarg3);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_AnimationState_setEnabled")]
+  public static extern void AnimationState_setEnabled(HandleRef jarg1, bool jarg2);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_AnimationState_getEnabled")]
+  public static extern bool AnimationState_getEnabled(HandleRef jarg1);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_AnimationState_setLoop")]
+  public static extern void AnimationState_setLoop(HandleRef jarg1, bool jarg2);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_AnimationState_getLoop")]
+  public static extern bool AnimationState_getLoop(HandleRef jarg1);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_AnimationState_addTime")]
+  public static extern void AnimationState_addTime(HandleRef jarg1, float jarg2);
+
   [DllImport("NativeEngine", EntryPoint="CSharp_SceneManager_CreateEntity__SWIG_0")]
   public static extern IntPtr SceneManager_CreateEntity__SWIG_0(HandleRef jarg1, string jarg2, string jarg3);
 
@@ -417,6 +483,27 @@ class NativeEngineInteropPINVOKE {
   [DllImport("NativeEngine", EntryPoint="CSharp_SceneManager_CreateLight__SWIG_1")]
   public static extern IntPtr SceneManager_CreateLight__SWIG_1(HandleRef jarg1);
 
+  [DllImport("NativeEngine", EntryPoint="CSharp_SceneManager_CreateAnimation")]
+  public static extern IntPtr SceneManager_CreateAnimation(HandleRef jarg1, string jarg2, float jarg3);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_SceneManager_GetAnimation")]
+  public static extern IntPtr SceneManager_GetAnimation(HandleRef jarg1, string jarg2);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_SceneManager_HasAnimation")]
+  public static extern bool SceneManager_HasAnimation(HandleRef jarg1, string jarg2);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_SceneManager_DestroyAnimation")]
+  public static extern void SceneManager_DestroyAnimation(HandleRef jarg1, string jarg2);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_SceneManager_CreateAnimationState")]
+  public static extern IntPtr SceneManager_CreateAnimationState(HandleRef jarg1, string jarg2);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_SceneManager_destroyAnimationState")]
+  public static extern void SceneManager_destroyAnimationState(HandleRef jarg1, string jarg2);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_SceneManager_getAnimationState")]
+  public static extern IntPtr SceneManager_getAnimationState(HandleRef jarg1, string jarg2);
+
   [DllImport("NativeEngine", EntryPoint="CSharp_Camera_SetPosition")]
   public static extern void Camera_SetPosition(HandleRef jarg1, float jarg2, float jarg3, float jarg4);
 
@@ -426,14 +513,59 @@ class NativeEngineInteropPINVOKE {
   [DllImport("NativeEngine", EntryPoint="CSharp_Camera_Move")]
   public static extern void Camera_Move(HandleRef jarg1, HandleRef jarg2);
 
+  [DllImport("NativeEngine", EntryPoint="CSharp_GroundDisc_setMaterial")]
+  public static extern void GroundDisc_setMaterial(HandleRef jarg1, string jarg2);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_PickResult_id_set")]
+  public static extern void PickResult_id_set(HandleRef jarg1, long jarg2);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_PickResult_id_get")]
+  public static extern long PickResult_id_get(HandleRef jarg1);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_PickResult_distance_set")]
+  public static extern void PickResult_distance_set(HandleRef jarg1, float jarg2);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_PickResult_distance_get")]
+  public static extern float PickResult_distance_get(HandleRef jarg1);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_new_PickResult")]
+  public static extern IntPtr new_PickResult();
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_delete_PickResult")]
+  public static extern void delete_PickResult(HandleRef jarg1);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_PickResultList_at")]
+  public static extern IntPtr PickResultList_at(HandleRef jarg1, int jarg2);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_PickResultList_size")]
+  public static extern int PickResultList_size(HandleRef jarg1);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_new_PickResultList")]
+  public static extern IntPtr new_PickResultList();
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_delete_PickResultList")]
+  public static extern void delete_PickResultList(HandleRef jarg1);
+
   [DllImport("NativeEngine", EntryPoint="CSharp_Scene_CreateBackgroundMap")]
   public static extern IntPtr Scene_CreateBackgroundMap(HandleRef jarg1, string jarg2);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_Scene_CreateGroundDisc")]
+  public static extern IntPtr Scene_CreateGroundDisc(HandleRef jarg1, string jarg2);
 
   [DllImport("NativeEngine", EntryPoint="CSharp_Scene_GetMainCamera")]
   public static extern IntPtr Scene_GetMainCamera(HandleRef jarg1);
 
   [DllImport("NativeEngine", EntryPoint="CSharp_Scene_GetCameraOrigin")]
   public static extern IntPtr Scene_GetCameraOrigin(HandleRef jarg1);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_Scene_pick")]
+  public static extern IntPtr Scene_pick(HandleRef jarg1, float jarg2, float jarg3);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_NativeEngineSettings_logCallback_set")]
+  public static extern void NativeEngineSettings_logCallback_set(HandleRef jarg1, /* imtype* */ IntPtr jarg2);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_NativeEngineSettings_logCallback_get")]
+  public static extern /* imtype* out */ IntPtr NativeEngineSettings_logCallback_get(HandleRef jarg1);
 
   [DllImport("NativeEngine", EntryPoint="CSharp_NativeEngineSettings_argc_set")]
   public static extern void NativeEngineSettings_argc_set(HandleRef jarg1, int jarg2);
@@ -471,6 +603,12 @@ class NativeEngineInteropPINVOKE {
   [DllImport("NativeEngine", EntryPoint="CSharp_NativeEngine_interfaceRoot")]
   public static extern /* imtype* out */ IntPtr NativeEngine_interfaceRoot(HandleRef jarg1);
 
+  [DllImport("NativeEngine", EntryPoint="CSharp_NativeEngine_windowWidth")]
+  public static extern int NativeEngine_windowWidth(HandleRef jarg1);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_NativeEngine_windowHeight")]
+  public static extern int NativeEngine_windowHeight(HandleRef jarg1);
+
   [DllImport("NativeEngine", EntryPoint="CSharp_ResourceManager_addZipArchive")]
   public static extern void ResourceManager_addZipArchive(string jarg1, string jarg2);
 
@@ -497,6 +635,9 @@ class NativeEngineInteropPINVOKE {
 
   [DllImport("NativeEngine", EntryPoint="CSharp_Light_SWIGUpcast")]
   public static extern IntPtr Light_SWIGUpcast(IntPtr jarg1);
+
+  [DllImport("NativeEngine", EntryPoint="CSharp_GroundDisc_SWIGUpcast")]
+  public static extern IntPtr GroundDisc_SWIGUpcast(IntPtr jarg1);
 
   [DllImport("NativeEngine", EntryPoint="CSharp_Scene_SWIGUpcast")]
   public static extern IntPtr Scene_SWIGUpcast(IntPtr jarg1);

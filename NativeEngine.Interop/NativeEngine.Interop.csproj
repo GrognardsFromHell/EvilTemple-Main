@@ -41,10 +41,13 @@
     <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Generated\Animation.cs" />
+    <Compile Include="Generated\AnimationState.cs" />
     <Compile Include="Generated\BackgroundMap.cs" />
     <Compile Include="Generated\Camera.cs" />
     <Compile Include="Generated\ColourValue.cs" />
     <Compile Include="Generated\Entity.cs" />
+    <Compile Include="Generated\GroundDisc.cs" />
     <Compile Include="Generated\Light.cs" />
     <Compile Include="Generated\MovableObject.cs" />
     <Compile Include="Generated\NativeEngine.cs">
@@ -60,6 +63,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Generated\Node.cs" />
+    <Compile Include="Generated\NodeAnimationTrack.cs" />
+    <Compile Include="Generated\PickResult.cs" />
+    <Compile Include="Generated\PickResultList.cs" />
     <Compile Include="Generated\QByteArray.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -73,6 +79,7 @@
     <Compile Include="Generated\SWIGTYPE_p_p_char.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Generated\TransformKeyFrame.cs" />
     <Compile Include="Generated\Vector3.cs" />
     <Compile Include="NativeEngine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

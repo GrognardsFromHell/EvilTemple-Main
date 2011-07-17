@@ -11,16 +11,16 @@ namespace EvilTemple.NativeEngineInterop.Generated {
 using System;
 using System.Runtime.InteropServices;
 
-public class Node : IDisposable {
+public class Animation : IDisposable {
   private HandleRef swigCPtr;
   protected bool swigCMemOwn;
 
-  internal Node(IntPtr cPtr, bool cMemoryOwn) {
+  internal Animation(IntPtr cPtr, bool cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = new HandleRef(this, cPtr);
   }
 
-  internal static HandleRef getCPtr(Node obj) {
+  internal static HandleRef getCPtr(Animation obj) {
     return (obj == null) ? new HandleRef(null, IntPtr.Zero) : obj.swigCPtr;
   }
 
@@ -37,9 +37,11 @@ public class Node : IDisposable {
     }
   }
 
-  public void setInitialState() {
-    NativeEngineInteropPINVOKE.Node_setInitialState(swigCPtr);
+  public NodeAnimationTrack createNodeTrack(ushort handle, Node node) {
+    IntPtr cPtr = NativeEngineInteropPINVOKE.Animation_createNodeTrack(swigCPtr, handle, Node.getCPtr(node));
+    NodeAnimationTrack ret = (cPtr == IntPtr.Zero) ? null : new NodeAnimationTrack(cPtr, false);
     if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
   }
 
 }

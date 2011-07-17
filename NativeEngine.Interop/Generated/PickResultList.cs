@@ -11,17 +11,21 @@ namespace EvilTemple.NativeEngineInterop.Generated {
 using System;
 using System.Runtime.InteropServices;
 
-public class Node : IDisposable {
+public class PickResultList : IDisposable {
   private HandleRef swigCPtr;
   protected bool swigCMemOwn;
 
-  internal Node(IntPtr cPtr, bool cMemoryOwn) {
+  internal PickResultList(IntPtr cPtr, bool cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = new HandleRef(this, cPtr);
   }
 
-  internal static HandleRef getCPtr(Node obj) {
+  internal static HandleRef getCPtr(PickResultList obj) {
     return (obj == null) ? new HandleRef(null, IntPtr.Zero) : obj.swigCPtr;
+  }
+
+  ~PickResultList() {
+    Dispose();
   }
 
   public virtual void Dispose() {
@@ -29,7 +33,7 @@ public class Node : IDisposable {
       if (swigCPtr.Handle != IntPtr.Zero) {
         if (swigCMemOwn) {
           swigCMemOwn = false;
-          throw new MethodAccessException("C++ destructor does not have public access");
+          NativeEngineInteropPINVOKE.delete_PickResultList(swigCPtr);
         }
         swigCPtr = new HandleRef(null, IntPtr.Zero);
       }
@@ -37,8 +41,19 @@ public class Node : IDisposable {
     }
   }
 
-  public void setInitialState() {
-    NativeEngineInteropPINVOKE.Node_setInitialState(swigCPtr);
+  public PickResult at(int i) {
+    PickResult ret = new PickResult(NativeEngineInteropPINVOKE.PickResultList_at(swigCPtr, i), false);
+    if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  public int size() {
+    int ret = NativeEngineInteropPINVOKE.PickResultList_size(swigCPtr);
+    if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
+    return ret;
+  }
+
+  public PickResultList() : this(NativeEngineInteropPINVOKE.new_PickResultList(), true) {
     if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
   }
 

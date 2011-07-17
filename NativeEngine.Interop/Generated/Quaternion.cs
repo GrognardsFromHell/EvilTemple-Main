@@ -89,7 +89,16 @@ public class Quaternion : IDisposable {
     } 
   }
 
-  public Quaternion(float w, float x, float y, float z) : this(NativeEngineInteropPINVOKE.new_Quaternion(w, x, y, z), true) {
+  public Quaternion() : this(NativeEngineInteropPINVOKE.new_Quaternion__SWIG_0(), true) {
+    if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public Quaternion(float w, float x, float y, float z) : this(NativeEngineInteropPINVOKE.new_Quaternion__SWIG_1(w, x, y, z), true) {
+    if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public void FromAngleAxis(float rfAngle, Vector3 rkAxis) {
+    NativeEngineInteropPINVOKE.Quaternion_FromAngleAxis(swigCPtr, rfAngle, Vector3.getCPtr(rkAxis));
     if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
   }
 

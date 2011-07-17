@@ -1,31 +1,47 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Text;
+using EvilTemple.D20Rules;
 using EvilTemple.NativeEngineInterop;
 using EvilTemple.NativeEngineInterop.Generated;
 using EvilTemple.Rules;
+using EvilTemple.Runtime.Messages;
 using EvilTemple.Support;
 using EvilTemple.Runtime;
 using Newtonsoft.Json;
+using Ninject;
+using OpenTK;
+using Quaternion = EvilTemple.NativeEngineInterop.Generated.Quaternion;
+using Vector3 = EvilTemple.NativeEngineInterop.Generated.Vector3;
 
 namespace EvilTemple
 {
     internal static class Startup
     {
+        private delegate void LogListener([MarshalAs(UnmanagedType.LPStr)] string name, 
+            [MarshalAs(UnmanagedType.LPStr)] string message, 
+            int level, 
+            [MarshalAs(UnmanagedType.Bool)] bool debug);
+
+        private static void LogMessage(string logName, string message, int level, bool debug)
+        {
+            Console.WriteLine("[" + level + "]: " + message);
+        }
+
+        private static readonly LogListener LogListenerDelegate = LogMessage;
+
         [STAThread]
         public static void Main(string[] args)
         {
             var paths = new Paths();
             var shortcuts = new Shortcuts();
+            
             /*
             InitializeConsoleLogging();
             InitializeFileLogging();
-
-            
-
-            var kernel = new StandardKernel();
-            Services.Kernel = kernel;
 
             kernel.Bind<IResourceManager>().ToConstant(resourceManager);
             kernel.Bind<IShortcuts>().ToConstant(shortcuts);
@@ -33,6 +49,8 @@ namespace EvilTemple
             LoadResources(resourceManager);
              * */
 
+            var activeAnimations = new List<string>();
+            
             /*
                 * There is one massive problem with this:
                 * If the GC's finalizer thread gets to collect this object, it will destroy the
@@ -46,13 +64,56 @@ namespace EvilTemple
                 ResourceManager.addZipArchive("General", Path.Combine(paths.GeneratedDataPath, "data.zip"));
                 ResourceManager.addDirectory("General", Path.Combine(paths.InstallationPath, "data"));
                 ResourceManager.addDirectory("General", Path.Combine(paths.GeneratedDataPath, "override"));
+
+                var kernel = new StandardKernel();
+                kernel.Bind<IResourceManager>().ToConstant(new ResourceManagerAdapter());
+                Services.Kernel = kernel;
+
+                kernel.Load(new RulesModule(), new D20Module(), new SupportModule());
+
+                LoadModules(kernel);
+
+                EventBus.Send<ApplicationStartup>();
+
                 ResourceManager.initializeGroup("General");
 
-                engine.OnKeyPress += e => Console.WriteLine("KEYPRESS: " + e.Text);
+                int w = engine.windowWidth();
+                int h = engine.windowHeight();
+
+                var lastObjectId = 0;
+                var selectableObjects = new Dictionary<long, BaseObject>();
+
+                engine.OnKeyPress += e =>
+                                         {
+                                             if (e.Keys == Keys.Right)
+                                             {
+                                                 var cam = engine.mainScene().GetMainCamera();
+                                                 using (var v3 = new Vector3(10, 0, 0))
+                                                     cam.Move(v3);
+                                             }
+
+                                             Console.WriteLine("KEYPRESS: " + e.Text);
+                                         };
                 engine.OnKeyRelease += e => Console.WriteLine("KEYRELEASE: " + e.Text);
                 engine.OnMousePress += e => Console.WriteLine("Mouse Press: " + e.X + "," + e.Y);
                 engine.OnMouseRelease += e => Console.WriteLine("Mouse Release " + e.X + "," + e.Y);
-                engine.OnMouseMove += e => Console.WriteLine("Mouse Move " + e.X + "," + e.Y);
+                engine.OnMouseMove += e =>{
+                                              var x = e.X / (float)w;
+                                              var y = e.Y / (float)h;
+
+                                              using (var pickResultList = engine.mainScene().pick(x, y))
+                                              {
+                                                  var count = pickResultList.size();
+                                                  for (var i = 0; i < count; ++i)
+                                                  {
+                                                      using (var pickResult = pickResultList.at(i))
+                                                      {
+                                                          var obj = selectableObjects[pickResult.id];
+                                                          Console.WriteLine("MouseOver: " + obj.Model);
+                                                      }
+                                                  }
+                                              }
+                };
                 engine.OnMouseDoubleClick += e => Console.WriteLine("Mouse Double Click " + e.X + "," + e.Y);
 
                 var staticObjectsJson = ResourceManager.ReadFile(@"maps/map-2-hommlet-exterior/staticObjects.json");
@@ -62,19 +123,87 @@ namespace EvilTemple
 
                 var scene = engine.mainScene();
 
-                var entity = scene.CreateEntity("meshes/pcs/pc_human_male/pc_human_male.mesh");
-                var sceneNode = scene.GetRootSceneNode().createChildSceneNode();
-                sceneNode.attachObject(entity);
+                const float PixelPerWorldTile = 28.2842703f;
+                {
+                    var entity = scene.CreateEntity("meshes/pcs/pc_human_male/pc_human_male.mesh");
+                    var sceneNode = scene.GetRootSceneNode().createChildSceneNode();
+                    sceneNode.attachObject(entity);
+                    sceneNode.setPosition(PixelPerWorldTile * 480, 0, -PixelPerWorldTile * 480);
+                }
+
+                foreach (var obj in objects)
+                {
+
+                    var entity = scene.CreateEntity(obj.Model);
+
+                    var sceneNode = scene.GetRootSceneNode().createChildSceneNode();
+                    sceneNode.setPosition(obj.Position.X, obj.Position.Y, -obj.Position.Z);
+                    sceneNode.attachObject(entity);
+
+                    if (obj.Interactive)
+                    {
+                        var selectionId = ++lastObjectId;
+                        selectableObjects[selectionId] = obj;
+                        entity.setSelectionData(selectionId, obj.SelectionRadius, obj.SelectionHeight);
+
+                        var selectionChildNode = sceneNode.createChildSceneNode();
+                        var selectionCircle = scene.CreateGroundDisc("meshes/mouseoverenemy");
+                        selectionChildNode.attachObject(selectionCircle);
+                        selectionChildNode.setScale(obj.SelectionRadius, obj.SelectionRadius, obj.SelectionRadius);
+                        selectionChildNode.setInitialState();
+
+                        var selectionAnim = scene.CreateAnimation("SelectionAnim-" + selectionId, 5);
+                        var animTrack = selectionAnim.createNodeTrack(0, selectionChildNode);
+                        var tnode = animTrack.createNodeKeyFrame(0);
+                        using (var rot = new Quaternion(1, 0, 0, 0))
+                            tnode.setRotation(rot);
+
+                        tnode = animTrack.createNodeKeyFrame(1.25f);
+                        using (var rot = new Quaternion())
+                        using (var axis = new Vector3(0, 1, 0))
+                        {
+                            rot.FromAngleAxis(MathHelper.DegreesToRadians(90), axis);
+                            tnode.setRotation(rot);
+                        }
+
+                        tnode = animTrack.createNodeKeyFrame(2.5f);
+                        using (var rot = new Quaternion())
+                        using (var axis = new Vector3(0, 1, 0))
+                        {
+                            rot.FromAngleAxis(MathHelper.DegreesToRadians(180), axis);
+                            tnode.setRotation(rot);
+                        }
+
+                        tnode = animTrack.createNodeKeyFrame(3.75f);
+                        using (var rot = new Quaternion())
+                        using (var axis = new Vector3(0, 1, 0))
+                        {
+                            rot.FromAngleAxis(MathHelper.DegreesToRadians(270), axis);
+                            tnode.setRotation(rot);
+                        }
+
+                        tnode = animTrack.createNodeKeyFrame(5f);
+                        using (var rot = new Quaternion())
+                        using (var vector = new Vector3(0, 1, 0))
+                        {
+                            rot.FromAngleAxis(MathHelper.DegreesToRadians(360), vector);
+                            tnode.setRotation(rot);
+                        }
+
+                        var state = scene.CreateAnimationState("SelectionAnim-" + selectionId);
+                        state.setEnabled(true);
+                        state.setLoop(true);
+
+                        activeAnimations.Add("SelectionAnim-" + selectionId);
+                    }
+                }
 
                 var light = scene.CreateLight();
                 light.setType(Light.LightTypes.LT_DIRECTIONAL);
                 light.setDirection(-0.6324093645670703858428703903848f,
                     -0.77463436252716949786709498111783f,
                     0f);
-                sceneNode.attachObject(light);
-                const float PixelPerWorldTile = 28.2842703f;
-
-                sceneNode.setPosition(PixelPerWorldTile * 480, 0, -PixelPerWorldTile * 480);
+                scene.GetRootSceneNode().attachObject(light);
 
                 var camera = scene.GetMainCamera();
                 camera.Move(new Vector3(PixelPerWorldTile * 480, 0, -PixelPerWorldTile * 480));
@@ -84,7 +213,7 @@ namespace EvilTemple
                 // Subscribe to the events the engine provides
                 //engine.OnKeyPress += shortcuts.HandleEvent;
                 //engine.OnDrawFrame += EventBus.Send<DrawFrameMessage>;
-                    
+
                 // Add several objects provided only by the engine
                 //AddEngineObjects(kernel, engine);
 
@@ -97,8 +226,23 @@ namespace EvilTemple
                 //EventBus.Send<ApplicationStartup>();
 
                 // Run the engine main loop););));));););
+                var sw = new Stopwatch();
+                sw.Start();
+                var msPerFrame = 1000/60;
+                
                 while (true)
                 {
+                    if (sw.ElapsedMilliseconds > msPerFrame)
+                    {
+                        var elapsed = sw.ElapsedMilliseconds/1000.0f;
+                        sw.Restart();
+                        foreach (var activeAnimId in activeAnimations)
+                        {
+                            var animState = scene.getAnimationState(activeAnimId);
+                            animState.addTime(elapsed);
+                        }
+                    }
+
                     engine.processEvents();
                     engine.renderFrame();
                 }
@@ -115,7 +259,17 @@ namespace EvilTemple
 
         private static NativeEngineSettings CreateEngineSettings()
         {
-            return new NativeEngineSettings();
+            var settings = new NativeEngineSettings();
+
+            settings.logCallback = Marshal.GetFunctionPointerForDelegate(LogListenerDelegate);
+
+            return settings;
+        }
+
+        private static void LoadModules(IKernel kernel)
+        {
+            var loader = kernel.Get<GameModuleLoader>();
+            loader.LoadAllModules();
         }
 
         /*
@@ -142,11 +296,7 @@ namespace EvilTemple
             SystemMessages.ConvertToTrace = true;
         }
 
-        private static void LoadModules(IKernel kernel)
-        {
-            var loader = kernel.Get<GameModuleLoader>();
-            loader.LoadAllModules();
-        }
+
 
         private static void LoadResources(ResourceManager resourceManager)
         {

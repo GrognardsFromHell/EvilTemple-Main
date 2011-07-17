@@ -11,16 +11,16 @@ namespace EvilTemple.NativeEngineInterop.Generated {
 using System;
 using System.Runtime.InteropServices;
 
-public class MovableObject : IDisposable {
+public class AnimationState : IDisposable {
   private HandleRef swigCPtr;
   protected bool swigCMemOwn;
 
-  internal MovableObject(IntPtr cPtr, bool cMemoryOwn) {
+  internal AnimationState(IntPtr cPtr, bool cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = new HandleRef(this, cPtr);
   }
 
-  internal static HandleRef getCPtr(MovableObject obj) {
+  internal static HandleRef getCPtr(AnimationState obj) {
     return (obj == null) ? new HandleRef(null, IntPtr.Zero) : obj.swigCPtr;
   }
 
@@ -37,38 +37,31 @@ public class MovableObject : IDisposable {
     }
   }
 
-  public void setSelectionData(long id, float radius, float height) {
-    NativeEngineInteropPINVOKE.MovableObject_setSelectionData(swigCPtr, id, radius, height);
+  public void setEnabled(bool enabled) {
+    NativeEngineInteropPINVOKE.AnimationState_setEnabled(swigCPtr, enabled);
     if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
   }
 
-  public bool hasSelectionData() {
-    bool ret = NativeEngineInteropPINVOKE.MovableObject_hasSelectionData(swigCPtr);
+  public bool getEnabled() {
+    bool ret = NativeEngineInteropPINVOKE.AnimationState_getEnabled(swigCPtr);
     if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }
 
-  public void clearSelectionData() {
-    NativeEngineInteropPINVOKE.MovableObject_clearSelectionData(swigCPtr);
+  public void setLoop(bool loop) {
+    NativeEngineInteropPINVOKE.AnimationState_setLoop(swigCPtr, loop);
     if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
   }
 
-  public long getSelectionId() {
-    long ret = NativeEngineInteropPINVOKE.MovableObject_getSelectionId(swigCPtr);
+  public bool getLoop() {
+    bool ret = NativeEngineInteropPINVOKE.AnimationState_getLoop(swigCPtr);
     if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }
 
-  public float getSelectionRadius() {
-    float ret = NativeEngineInteropPINVOKE.MovableObject_getSelectionRadius(swigCPtr);
+  public void addTime(float time) {
+    NativeEngineInteropPINVOKE.AnimationState_addTime(swigCPtr, time);
     if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
-    return ret;
-  }
-
-  public float getSelectionHeight() {
-    float ret = NativeEngineInteropPINVOKE.MovableObject_getSelectionHeight(swigCPtr);
-    if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
-    return ret;
   }
 
 }

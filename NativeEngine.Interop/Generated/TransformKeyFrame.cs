@@ -11,21 +11,17 @@ namespace EvilTemple.NativeEngineInterop.Generated {
 using System;
 using System.Runtime.InteropServices;
 
-public partial class NativeEngine : IDisposable {
+public class TransformKeyFrame : IDisposable {
   private HandleRef swigCPtr;
   protected bool swigCMemOwn;
 
-  internal NativeEngine(IntPtr cPtr, bool cMemoryOwn) {
+  internal TransformKeyFrame(IntPtr cPtr, bool cMemoryOwn) {
     swigCMemOwn = cMemoryOwn;
     swigCPtr = new HandleRef(this, cPtr);
   }
 
-  internal static HandleRef getCPtr(NativeEngine obj) {
+  internal static HandleRef getCPtr(TransformKeyFrame obj) {
     return (obj == null) ? new HandleRef(null, IntPtr.Zero) : obj.swigCPtr;
-  }
-
-  ~NativeEngine() {
-    Dispose();
   }
 
   public virtual void Dispose() {
@@ -33,7 +29,7 @@ public partial class NativeEngine : IDisposable {
       if (swigCPtr.Handle != IntPtr.Zero) {
         if (swigCMemOwn) {
           swigCMemOwn = false;
-          NativeEngineInteropPINVOKE.delete_NativeEngine(swigCPtr);
+          throw new MethodAccessException("C++ destructor does not have public access");
         }
         swigCPtr = new HandleRef(null, IntPtr.Zero);
       }
@@ -41,52 +37,35 @@ public partial class NativeEngine : IDisposable {
     }
   }
 
-
-    private UserInterface _userInterface;
-
-    public UserInterface UserInterface {
-        get {
-            if (_userInterface == null)
-                _userInterface = new UserInterface(interfaceRoot());
-            return _userInterface;
-        }
-    }
-
-  public NativeEngine(NativeEngineSettings settings) : this(NativeEngineInteropPINVOKE.new_NativeEngine(NativeEngineSettings.getCPtr(settings)), true) {
+  public void setTranslate(Vector3 trans) {
+    NativeEngineInteropPINVOKE.TransformKeyFrame_setTranslate(swigCPtr, Vector3.getCPtr(trans));
     if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
   }
 
-  public void processEvents() {
-    NativeEngineInteropPINVOKE.NativeEngine_processEvents(swigCPtr);
-    if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
-  }
-
-  public void renderFrame() {
-    NativeEngineInteropPINVOKE.NativeEngine_renderFrame(swigCPtr);
-    if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
-  }
-
-  public Scene mainScene() {
-    IntPtr cPtr = NativeEngineInteropPINVOKE.NativeEngine_mainScene(swigCPtr);
-    Scene ret = (cPtr == IntPtr.Zero) ? null : new Scene(cPtr, false);
+  public Vector3 getTranslate() {
+    Vector3 ret = new Vector3(NativeEngineInteropPINVOKE.TransformKeyFrame_getTranslate(swigCPtr), false);
     if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }
 
-  public /* cstype* out */ IntPtr interfaceRoot() {
-        /* csout* */ IntPtr ret = NativeEngineInteropPINVOKE.NativeEngine_interfaceRoot(swigCPtr);
+  public void setScale(Vector3 scale) {
+    NativeEngineInteropPINVOKE.TransformKeyFrame_setScale(swigCPtr, Vector3.getCPtr(scale));
     if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
-        return ret;
   }
 
-  public int windowWidth() {
-    int ret = NativeEngineInteropPINVOKE.NativeEngine_windowWidth(swigCPtr);
+  public Vector3 getScale() {
+    Vector3 ret = new Vector3(NativeEngineInteropPINVOKE.TransformKeyFrame_getScale(swigCPtr), false);
     if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }
 
-  public int windowHeight() {
-    int ret = NativeEngineInteropPINVOKE.NativeEngine_windowHeight(swigCPtr);
+  public void setRotation(Quaternion quaternion) {
+    NativeEngineInteropPINVOKE.TransformKeyFrame_setRotation(swigCPtr, Quaternion.getCPtr(quaternion));
+    if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
+  }
+
+  public Quaternion getRotation() {
+    Quaternion ret = new Quaternion(NativeEngineInteropPINVOKE.TransformKeyFrame_getRotation(swigCPtr), false);
     if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
     return ret;
   }

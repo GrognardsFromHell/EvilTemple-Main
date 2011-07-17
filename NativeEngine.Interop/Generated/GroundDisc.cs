@@ -11,20 +11,18 @@ namespace EvilTemple.NativeEngineInterop.Generated {
 using System;
 using System.Runtime.InteropServices;
 
-public class Node : IDisposable {
+public class GroundDisc : MovableObject {
   private HandleRef swigCPtr;
-  protected bool swigCMemOwn;
 
-  internal Node(IntPtr cPtr, bool cMemoryOwn) {
-    swigCMemOwn = cMemoryOwn;
+  internal GroundDisc(IntPtr cPtr, bool cMemoryOwn) : base(NativeEngineInteropPINVOKE.GroundDisc_SWIGUpcast(cPtr), cMemoryOwn) {
     swigCPtr = new HandleRef(this, cPtr);
   }
 
-  internal static HandleRef getCPtr(Node obj) {
+  internal static HandleRef getCPtr(GroundDisc obj) {
     return (obj == null) ? new HandleRef(null, IntPtr.Zero) : obj.swigCPtr;
   }
 
-  public virtual void Dispose() {
+  public override void Dispose() {
     lock(this) {
       if (swigCPtr.Handle != IntPtr.Zero) {
         if (swigCMemOwn) {
@@ -34,11 +32,12 @@ public class Node : IDisposable {
         swigCPtr = new HandleRef(null, IntPtr.Zero);
       }
       GC.SuppressFinalize(this);
+      base.Dispose();
     }
   }
 
-  public void setInitialState() {
-    NativeEngineInteropPINVOKE.Node_setInitialState(swigCPtr);
+  public void setMaterial(string material) {
+    NativeEngineInteropPINVOKE.GroundDisc_setMaterial(swigCPtr, material);
     if (NativeEngineInteropPINVOKE.SWIGPendingException.Pending) throw NativeEngineInteropPINVOKE.SWIGPendingException.Retrieve();
   }
 
